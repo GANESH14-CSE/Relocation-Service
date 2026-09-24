@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relocation Blogs & Guides — MoveEase</title>
+  <meta name="description" content="Expert relocation guides, moving tips, packing strategies, office relocation checklists, and climate storage best practices from MoveEase professionals.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Global Navbar -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="MoveEase Home">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+          <rect x="12" y="30" width="20" height="2.5" rx="1" fill="#FFFFFF" opacity="0.8" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="blogs.html" class="nav-link active">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link">Login</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="basket-btn" aria-label="View cart" title="Shopping Cart" id="cartToggleBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="basket-badge" style="display: none;">0</span>
+        </button>
+        <a href="orders.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-dropdown-header">
+        <h4>Your Cart</h4>
+        <button type="button" class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="cart-dropdown-body" id="cartDropdownBody">
+        <div class="cart-empty-msg" id="cartEmptyMsg">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-dropdown-footer" id="cartDropdownFooter" style="display:none;">
+        <a href="orders.html" class="btn btn-primary" style="width:100%;">Proceed to Checkout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <svg width="34" height="34" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </div>
+      <button type="button" class="mobile-close-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="home2.html" class="mobile-nav-link">Home 2 (Estimator)</a>
+      <a href="about.html" class="mobile-nav-link">About MoveEase</a>
+      <a href="services.html" class="mobile-nav-link">Our Services</a>
+      <a href="orders.html" class="mobile-nav-link">Book a Move</a>
+      <a href="blogs.html" class="mobile-nav-link active">Relocation Blogs</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+      <a href="login.html" class="mobile-nav-link">Login</a>
+    </nav>
+    <div style="margin-top: auto; padding-top: var(--space-5);">
+      <a href="orders.html" class="btn btn-primary" style="width: 100%;">Get a Free Quote</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Header Banner -->
+    <section class="section section-dark" style="padding-top: var(--space-7); padding-bottom: var(--space-7);">
+      <div class="container text-center">
+        <span class="section-tag tag-white">Resource Center</span>
+        <h1 style="color: #FFFFFF; margin-bottom: var(--space-3);">Relocation Insights & Moving Tips</h1>
+        <p style="max-width: 650px; margin: 0 auto; color: #94A3B8;">
+          Industry-tested strategies, packing guides, and countdown checklists written by certified moving supervisors.
+        </p>
+      </div>
+    </section>
+
+    <!-- Blogs Listing Section -->
+    <section class="section section-white" aria-labelledby="blogs-heading">
+      <div class="container">
+        <!-- Category Filter Tabs -->
+        <div class="blog-filter-tabs" role="tablist" aria-label="Filter articles by category">
+          <button type="button" class="filter-tab-btn active" data-category="all">All Articles</button>
+          <button type="button" class="filter-tab-btn" data-category="moving-tips">Moving Tips</button>
+          <button type="button" class="filter-tab-btn" data-category="packing-guide">Packing Guide</button>
+          <button type="button" class="filter-tab-btn" data-category="office-relocation">Office Relocation</button>
+          <button type="button" class="filter-tab-btn" data-category="storage">Storage</button>
+          <button type="button" class="filter-tab-btn" data-category="checklist">Moving Checklist</button>
+        </div>
+
+        <!-- 6 Rich Article Cards -->
+        <div class="blogs-grid" id="blogsGrid">
+          <!-- Article 1: Moving Tips -->
+          <article class="blog-card reveal reveal-up delay-1" data-category="moving-tips">
+            <div class="blog-card-media">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Moving boxes stacked in living room" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span class="badge badge-blue">Moving Tips</span>
+                <span>5 min read · Oct 12, 2025</span>
+              </div>
+              <h3 class="blog-card-title">10 Smart Strategies To Make Intercity Moves Stress-Free</h3>
+              <p class="blog-card-excerpt">
+                Planning an interstate move between Chennai and Bangalore? Discover how early decluttering, utility transfers, and digital labeling save hours on move day.
+              </p>
+              <button type="button" class="btn btn-outline btn-sm read-article-btn" data-article="1">Read Article</button>
+            </div>
+          </article>
+
+          <!-- Article 2: Packing Guide -->
+          <article class="blog-card reveal reveal-up delay-2" data-category="packing-guide">
+            <div class="blog-card-media">
+              <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=600&q=80" alt="Cushioning fragile dishes with bubble wrap" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span class="badge badge-orange">Packing Guide</span>
+                <span>7 min read · Nov 04, 2025</span>
+              </div>
+              <h3 class="blog-card-title">How To Pack Fragile China, Glassware, and Flat-Screen TVs</h3>
+              <p class="blog-card-excerpt">
+                A step-by-step masterclass on cell-dividers, air-bubble cushioning, and custom wooden crating to guarantee zero hairline cracks in transit.
+              </p>
+              <button type="button" class="btn btn-outline btn-sm read-article-btn" data-article="2">Read Article</button>
+            </div>
+          </article>
+
+          <!-- Article 3: Office Relocation -->
+          <article class="blog-card reveal reveal-up delay-3" data-category="office-relocation">
+            <div class="blog-card-media">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Office workstations and IT servers" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span class="badge badge-blue">Office Relocation</span>
+                <span>6 min read · Dec 19, 2025</span>
+              </div>
+              <h3 class="blog-card-title">Corporate IT Migration: Minimizing Business Downtime Over Weekends</h3>
+              <p class="blog-card-excerpt">
+                How enterprise teams coordinate server disconnections, cable tags, and anti-static handling so your staff logs in seamlessly on Monday morning.
+              </p>
+              <button type="button" class="btn btn-outline btn-sm read-article-btn" data-article="3">Read Article</button>
+            </div>
+          </article>
+
+          <!-- Article 4: Storage -->
+          <article class="blog-card reveal reveal-up delay-1" data-category="storage">
+            <div class="blog-card-media">
+              <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=600&q=80" alt="Clean secure warehouse aisle" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span class="badge badge-blue">Storage</span>
+                <span>4 min read · Jan 15, 2026</span>
+              </div>
+              <h3 class="blog-card-title">Climate-Controlled Storage vs Standard Warehouses: What You Need</h3>
+              <p class="blog-card-excerpt">
+                Why leather sofas, wooden heirlooms, and electronics require humidity-controlled facilities rather than ordinary open sheds in coastal climates.
+              </p>
+              <button type="button" class="btn btn-outline btn-sm read-article-btn" data-article="4">Read Article</button>
+            </div>
+          </article>
+
+          <!-- Article 5: Moving Checklist -->
+          <article class="blog-card reveal reveal-up delay-2" data-category="checklist">
+            <div class="blog-card-media">
+              <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=600&q=80" alt="Carrier truck on journey" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span class="badge badge-orange">Moving Checklist</span>
+                <span>8 min read · Feb 02, 2026</span>
+              </div>
+              <h3 class="blog-card-title">The Ultimate 4-Week Countdown Checklist Before Moving Day</h3>
+              <p class="blog-card-excerpt">
+                Week-by-week actionable roadmap: from booking gate permissions and sorting documents to preparing the essential first-night survival box.
+              </p>
+              <button type="button" class="btn btn-outline btn-sm read-article-btn" data-article="5">Read Article</button>
+            </div>
+          </article>
+
+          <!-- Article 6: Moving Tips -->
+          <article class="blog-card reveal reveal-up delay-3" data-category="moving-tips">
+            <div class="blog-card-media">
+              <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Modern new home keys and doorstep" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span class="badge badge-blue">Moving Tips</span>
+                <span>5 min read · Feb 20, 2026</span>
+              </div>
+              <h3 class="blog-card-title">Settling Into Your New Neighborhood in Chennai & Bangalore</h3>
+              <p class="blog-card-excerpt">
+                Tips on finding trusted local electricians, setting up water cans, registering with resident welfare associations (RWAs), and adapting smoothly.
+              </p>
+              <button type="button" class="btn btn-outline btn-sm read-article-btn" data-article="6">Read Article</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="final-cta-section" aria-labelledby="blogs-cta-heading">
+      <div class="container">
+        <div class="final-cta-inner">
+          <div class="final-cta-text reveal reveal-left">
+            <h2 id="blogs-cta-heading">Ready To Put These Tips Into Practice?</h2>
+            <p>Let MoveEase handle your packing, heavy lifting, and highway transit with verified care.</p>
+          </div>
+          <div class="final-cta-buttons reveal reveal-right delay-1">
+            <a href="home2.html" class="btn btn-primary btn-lg">Calculate Estimate</a>
+            <a href="orders.html" class="btn btn-outline-white btn-lg">Book Move Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       ARTICLE READING MODAL PREVIEW
+       ======================================================================== -->
+  <div class="modal-overlay" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle">
+    <div class="modal-box" style="max-width: 680px; text-align: left;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-3);">
+        <span class="badge badge-blue" id="articleModalBadge">Moving Guide</span>
+        <button type="button" id="closeArticleModal" aria-label="Close article" style="font-size: 1.5rem; color: var(--color-navy); line-height: 1;">&times;</button>
+      </div>
+      <h3 id="articleModalTitle" style="margin-bottom: var(--space-3); color: var(--color-navy); font-size: 1.35rem;">Article Title</h3>
+      <div style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-bottom: var(--space-4);" id="articleModalMeta">5 min read · Published by MoveEase Logistics</div>
+      <div id="articleModalContent" style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text-primary); max-height: 50vh; overflow-y: auto; padding-right: var(--space-2);">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div style="margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+        <span class="text-xs text-secondary">Need help executing this move?</span>
+        <a href="orders.html" class="btn btn-primary btn-sm">Get Free Moving Quote</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #FFFFFF;">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="44" height="44" rx="10" fill="#1769AA" />
+              <path d="M10 28L18 16L26 28H10Z" fill="#FFFFFF" />
+              <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+              <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+            </svg>
+            <span>Move<span class="accent">Ease</span></span>
+          </div>
+          <p>Expert moving advice and South India's premier relocation network.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Cost Estimator</a></li>
+            <li><a href="about.html">About Company</a></li>
+            <li><a href="services.html">Services Catalogue</a></li>
+            <li><a href="orders.html">Book Your Move</a></li>
+            <li><a href="blogs.html">Relocation Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#residential">Residential Relocation</a></li>
+            <li><a href="services.html#office">Office Shifting</a></li>
+            <li><a href="services.html#packing">Premium Packing</a></li>
+            <li><a href="services.html#furniture">Furniture Assembly</a></li>
+            <li><a href="services.html#storage">Warehouse Storage</a></li>
+            <li><a href="services.html#vehicle">Car & Bike Transit</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact & Support</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+91 44 2847 9100 / 1800-420-6683</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>support@moveease.in</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>MoveEase Tower, Mount Road, Chennai, TN 600002</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 MoveEase Logistics India Private Limited. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+          <a href="contact.html">Transit Insurance Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Blog Category Filtering & Reading Modal Preview
+    document.addEventListener('DOMContentLoaded', function () {
+      const filterBtns = document.querySelectorAll('.filter-tab-btn');
+      const cards = document.querySelectorAll('.blog-card');
+      const modal = document.getElementById('articleModal');
+      const modalClose = document.getElementById('closeArticleModal');
+      const modalBadge = document.getElementById('articleModalBadge');
+      const modalTitle = document.getElementById('articleModalTitle');
+      const modalContent = document.getElementById('articleModalContent');
+
+      // Category Filter logic
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          const category = this.getAttribute('data-category');
+          cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Article Content Database for Reading Modal
+      const articleArticles = {
+        '1': {
+          badge: 'Moving Tips',
+          title: '10 Smart Strategies To Make Intercity Moves Stress-Free',
+          text: `
+            <p>Intercity moving between bustling hubs like Chennai, Bangalore, and Hyderabad requires proactive planning. Here are top 10 practical rules from our senior supervisors:</p>
+            <br>
+            <p><strong>1. Declutter ruthlessly:</strong> Transporting unused furniture or heavy clothes you haven't worn in two years increases freight costs unnecessarily. Donate or sell items before getting an inventory survey.</p>
+            <br>
+            <p><strong>2. Color-code rooms:</strong> Use colored label tape for each room (Blue = Master Bed, Green = Living Room). When movers arrive at destination, boxes are placed directly where they belong.</p>
+            <br>
+            <p><strong>3. Keep personal essentials separate:</strong> Carry jewellery, property deeds, laptops, and 3 days of medicine in your personal vehicle or handbag, never in the general cargo truck.</p>
+            <br>
+            <p><strong>4. Coordinate society permissions:</strong> Secure society elevator reservations and gate entry passes for heavy trucks 48 hours prior to move morning.</p>
+          `
+        },
+        '2': {
+          badge: 'Packing Guide',
+          title: 'How To Pack Fragile China, Glassware, and Flat-Screen TVs',
+          text: `
+            <p>Cushioning delicate heirlooms requires adherence to kinetic physics during road transport:</p>
+            <br>
+            <p><strong>The Golden Bubble Wrap Ratio:</strong> Always wrap plates vertically on their edges like records in a crate, never flat stacked. Plates stacked flat crack easily under highway bumps.</p>
+            <br>
+            <p><strong>Custom TV Crating:</strong> Never pack OLED/LED screens in generic cartons without rigid screen protection. MoveEase technicians use foam corner blocks and hard corrugated faceplates to prevent panel bruising.</p>
+          `
+        },
+        '3': {
+          badge: 'Office Relocation',
+          title: 'Corporate IT Migration: Minimizing Business Downtime Over Weekends',
+          text: `
+            <p>When shifting commercial premises, every hour of server downtime costs revenue. Our IT migration protocol relies on:</p>
+            <br>
+            <p>1. Anti-static thermal packaging for blades, routers, and NAS units.<br>
+            2. Color-coded desk inventory bags for employee mice, keyboards, and dual-monitor mounts.<br>
+            3. Synchronized Friday 6 PM decommissioning with Sunday noon electrical commissioning for seamless Monday kickoffs.</p>
+          `
+        },
+        '4': {
+          badge: 'Storage',
+          title: 'Climate-Controlled Storage vs Standard Warehouses: What You Need',
+          text: `
+            <p>Coastal cities like Chennai and Pondicherry face extreme relative humidity during monsoon seasons. Storing wooden tables, leather upholstery, or oil paintings in uninsulated tin sheds causes warping, mold spores, and structural deterioration within weeks.</p>
+            <br>
+            <p>MoveEase climate-controlled bays regulate ambient temperatures between 21°C - 24°C with active dehumidifiers, ensuring your precious goods emerge in pristine condition regardless of outside weather.</p>
+          `
+        },
+        '5': {
+          badge: 'Moving Checklist',
+          title: 'The Ultimate 4-Week Countdown Checklist Before Moving Day',
+          text: `
+            <p><strong>Week 4:</strong> Research relocation firms, compare verified reviews, and schedule a physical or video pre-move survey.<br><br>
+            <strong>Week 3:</strong> Notify Wi-Fi broadband, gas agencies, and bank accounts of your upcoming change of address.<br><br>
+            <strong>Week 2:</strong> Consume frozen food items, dispose of flammable liquids, and arrange elevator access slots.<br><br>
+            <strong>Week 1:</strong> Pack your 'First Night Survival Kit' with phone chargers, fresh linens, toiletries, and kettle.</p>
+          `
+        },
+        '6': {
+          badge: 'Moving Tips',
+          title: 'Settling Into Your New Neighborhood in Chennai & Bangalore',
+          text: `
+            <p>Moving into a new city can feel overwhelming. Follow these quick steps to settle in quickly:<br><br>
+            1. Introduce yourself to the resident association office and obtain water delivery contacts.<br>
+            2. Locate your nearest 24-hour pharmacy, grocery delivery dark stores, and urgent care clinic.<br>
+            3. Inspect all electrical switchboards, plumbing taps, and geysers immediately before unboxing completes.</p>
+          `
+        }
+      };
+
+      document.querySelectorAll('.read-article-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const id = this.getAttribute('data-article');
+          const data = articleArticles[id];
+          if (data && modal) {
+            modalBadge.textContent = data.badge;
+            modalTitle.textContent = data.title;
+            modalContent.innerHTML = data.text;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      if (modalClose) {
+        modalClose.addEventListener('click', function () {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

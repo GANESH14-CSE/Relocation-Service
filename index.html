@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoveEase — Premium Relocation & Moving Services</title>
+  <meta name="description" content="MoveEase provides reliable household and office relocation services across India. Safe packing, GPS-tracked transportation, and stress-free moving.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       STICKY GLOBAL NAVBAR
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Original Brand Logo & Wordmark -->
+      <a href="index.html" class="brand-logo" aria-label="MoveEase Home">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+          <rect x="12" y="30" width="20" height="2.5" rx="1" fill="#FFFFFF" opacity="0.8" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="blogs.html" class="nav-link">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link">Login</a>
+      </nav>
+
+      <!-- Header Actions (Basket & CTA) -->
+      <div class="header-actions">
+        <button type="button" class="basket-btn" aria-label="View cart" title="Shopping Cart" id="cartToggleBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="basket-badge" style="display: none;">0</span>
+        </button>
+        <a href="orders.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-dropdown-header">
+        <h4>Your Cart</h4>
+        <button type="button" class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="cart-dropdown-body" id="cartDropdownBody">
+        <div class="cart-empty-msg" id="cartEmptyMsg">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-dropdown-footer" id="cartDropdownFooter" style="display:none;">
+        <a href="orders.html" class="btn btn-primary" style="width:100%;">Proceed to Checkout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Overlay -->
+  <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <svg width="34" height="34" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </div>
+      <button type="button" class="mobile-close-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="home2.html" class="mobile-nav-link">Home 2 (Estimator)</a>
+      <a href="about.html" class="mobile-nav-link">About MoveEase</a>
+      <a href="services.html" class="mobile-nav-link">Our Services</a>
+      <a href="orders.html" class="mobile-nav-link">Book a Move</a>
+      <a href="blogs.html" class="mobile-nav-link">Relocation Blogs</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+      <a href="login.html" class="mobile-nav-link">Login</a>
+    </nav>
+    <div style="margin-top: auto; padding-top: var(--space-5);">
+      <a href="orders.html" class="btn btn-primary" style="width: 100%;">Get a Free Quote</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ======================================================================
+         1. HERO SECTION (With Original Animated SVG Sequence + Photo Backdrop)
+         ====================================================================== -->
+    <section class="hero-home" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left: Hero Headline & Action -->
+          <div class="hero-content reveal reveal-up">
+            <span class="section-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Verified & Insured Relocations
+            </span>
+            <h1 id="hero-title" class="hero-headline">Move With Confidence.<br>We'll Handle The Rest.</h1>
+            <p class="hero-lead">
+              Reliable household and office relocation services designed to make every move simple, safe and stress-free across South India's premier corridors.
+            </p>
+            <div class="hero-ctas">
+              <a href="#quick-quote" class="btn btn-primary btn-lg">Get Free Quote</a>
+              <a href="services.html" class="btn btn-outline btn-lg">Explore Services</a>
+            </div>
+            <div class="hero-trust-badges">
+              <div class="trust-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Zero Transit Damage Guarantee</span>
+              </div>
+              <div class="trust-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>GPS Live Truck Telematics</span>
+              </div>
+              <div class="trust-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Transparent Flat Pricing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Original Animated SVG Sequence (House -> Boxes -> Truck -> New House) -->
+          <div class="hero-visual-card reveal reveal-right delay-2">
+            <div class="hero-visual-photo-backdrop" aria-hidden="true"></div>
+            <div class="svg-animation-container">
+              <svg viewBox="0 0 540 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;" aria-label="Animated moving sequence from old house through moving truck to new destination">
+                <!-- Ground Road & Line -->
+                <line x1="20" y1="230" x2="520" y2="230" stroke="#CBD5E1" stroke-width="3" />
+                <path d="M 60 215 C 160 215, 200 170, 310 170 C 390 170, 420 215, 480 215" class="anim-route-line" stroke="#1769AA" stroke-width="2.5" fill="none" />
+
+                <!-- Origin House (Left) -->
+                <g id="originHouse">
+                  <path d="M30 230 V175 L60 145 L90 175 V230 Z" fill="#E2E8F0" stroke="#0B1F33" stroke-width="2" />
+                  <path d="M22 175 L60 140 L98 175 Z" fill="#1769AA" />
+                  <rect x="48" y="195" width="16" height="35" fill="#0B1F33" />
+                  <rect x="36" y="175" width="14" height="14" fill="#36A9E1" opacity="0.6" rx="2" />
+                  <rect x="65" y="175" width="14" height="14" fill="#36A9E1" opacity="0.6" rx="2" />
+                </g>
+
+                <!-- Stacked Cargo Boxes -->
+                <g class="anim-box-1">
+                  <rect x="105" y="200" width="22" height="22" rx="2" fill="#D97706" stroke="#92400E" stroke-width="1.5" />
+                  <line x1="105" y1="211" x2="127" y2="211" stroke="#92400E" stroke-width="1.5" />
+                  <line x1="116" y1="200" x2="116" y2="222" stroke="#92400E" stroke-width="1.5" />
+                </g>
+                <g class="anim-box-2">
+                  <rect x="122" y="184" width="18" height="18" rx="2" fill="#F59E0B" stroke="#92400E" stroke-width="1.5" />
+                  <line x1="122" y1="193" x2="140" y2="193" stroke="#92400E" stroke-width="1.5" />
+                </g>
+                <g class="anim-box-3">
+                  <rect x="108" y="176" width="16" height="16" rx="2" fill="#FBBF24" stroke="#92400E" stroke-width="1.5" />
+                </g>
+
+                <!-- Animated Moving Truck (Drifting with Rotating Wheels) -->
+                <g class="anim-truck">
+                  <!-- Truck Container Body -->
+                  <rect x="175" y="145" width="135" height="70" rx="6" fill="#0B1F33" />
+                  <rect x="180" y="150" width="125" height="58" fill="#1769AA" rx="4" />
+                  <text x="242" y="184" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-weight="700" font-size="12" text-anchor="middle" letter-spacing="1">MOVEEASE</text>
+                  <line x1="180" y1="190" x2="305" y2="190" stroke="#F59E0B" stroke-width="2.5" />
+
+                  <!-- Truck Cabin -->
+                  <path d="M310 165 H345 L362 188 V215 H310 Z" fill="#0B1F33" />
+                  <!-- Windshield -->
+                  <path d="M322 170 H342 L354 186 H322 Z" fill="#36A9E1" opacity="0.8" />
+                  <!-- Headlight -->
+                  <rect x="358" y="200" width="5" height="6" rx="1" fill="#F59E0B" />
+                  <!-- Chassis Beam -->
+                  <rect x="180" y="215" width="175" height="6" fill="#071524" />
+
+                  <!-- Front Wheel with Spin -->
+                  <g transform="translate(335, 222)">
+                    <circle cx="0" cy="0" r="14" fill="#1F2937" stroke="#374151" stroke-width="2" />
+                    <circle cx="0" cy="0" r="7" fill="#9CA3AF" />
+                    <g class="anim-wheel">
+                      <line x1="0" y1="-7" x2="0" y2="7" stroke="#1F2937" stroke-width="2" />
+                      <line x1="-7" y1="0" x2="7" y2="0" stroke="#1F2937" stroke-width="2" />
+                    </g>
+                  </g>
+
+                  <!-- Rear Wheel 1 with Spin -->
+                  <g transform="translate(205, 222)">
+                    <circle cx="0" cy="0" r="14" fill="#1F2937" stroke="#374151" stroke-width="2" />
+                    <circle cx="0" cy="0" r="7" fill="#9CA3AF" />
+                    <g class="anim-wheel">
+                      <line x1="0" y1="-7" x2="0" y2="7" stroke="#1F2937" stroke-width="2" />
+                      <line x1="-7" y1="0" x2="7" y2="0" stroke="#1F2937" stroke-width="2" />
+                    </g>
+                  </g>
+
+                  <!-- Rear Wheel 2 with Spin -->
+                  <g transform="translate(235, 222)">
+                    <circle cx="0" cy="0" r="14" fill="#1F2937" stroke="#374151" stroke-width="2" />
+                    <circle cx="0" cy="0" r="7" fill="#9CA3AF" />
+                    <g class="anim-wheel">
+                      <line x1="0" y1="-7" x2="0" y2="7" stroke="#1F2937" stroke-width="2" />
+                      <line x1="-7" y1="0" x2="7" y2="0" stroke="#1F2937" stroke-width="2" />
+                    </g>
+                  </g>
+                </g>
+
+                <!-- Destination House (Right) -->
+                <g id="destHouse">
+                  <path d="M430 230 V165 L475 135 L520 165 V230 Z" fill="#F8FAFC" stroke="#0B1F33" stroke-width="2" />
+                  <path d="M420 165 L475 130 L530 165 Z" fill="#0B1F33" />
+                  <rect x="465" y="190" width="18" height="40" fill="#1769AA" />
+                  <rect x="440" y="170" width="16" height="16" fill="#F59E0B" opacity="0.8" rx="2" />
+                  <rect x="495" y="170" width="16" height="16" fill="#F59E0B" opacity="0.8" rx="2" />
+                  <!-- Balcony Line -->
+                  <line x1="435" y1="205" x2="460" y2="205" stroke="#0B1F33" stroke-width="2" />
+                </g>
+
+                <!-- Animated Destination Pin -->
+                <g class="anim-pin" transform="translate(475, 115)">
+                  <path d="M0 0 C-7 -7, -11 -13, -11 -20 C-11 -28, -5 -34, 0 -34 C5 -34, 11 -28, 11 -20 C11 -13, 7 -7, 0 0 Z" fill="#F59E0B" />
+                  <circle cx="0" cy="-20" r="4.5" fill="#0B1F33" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Overlapping Quick Quote Calculator Bar -->
+        <div class="hero-floating-quote reveal reveal-up delay-3" id="quick-quote">
+          <div class="quote-card">
+            <div class="quote-card-header">
+              <h3>Fast Moving Estimate</h3>
+              <span class="badge badge-blue">Real-Time Instant Rates</span>
+            </div>
+            <form id="heroQuickQuoteForm" action="home2.html" method="GET">
+              <div class="quote-form-grid">
+                <div class="form-group">
+                  <label for="hqFrom" class="form-label">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    Moving From
+                  </label>
+                  <input type="text" id="hqFrom" name="pickup" class="form-control" placeholder="e.g. Chennai, T Nagar" required>
+                </div>
+                <div class="form-group">
+                  <label for="hqTo" class="form-label">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Moving To
+                  </label>
+                  <input type="text" id="hqTo" name="dest" class="form-control" placeholder="e.g. Bangalore, Indiranagar" required>
+                </div>
+                <div class="form-group">
+                  <label for="hqType" class="form-label">Property Type</label>
+                  <select id="hqType" name="prop" class="form-control" required>
+                    <option value="1bhk">1 BHK Apartment</option>
+                    <option value="2bhk" selected>2 BHK Apartment</option>
+                    <option value="3bhk">3 BHK Apartment</option>
+                    <option value="4bhk">4 BHK / Duplex</option>
+                    <option value="villa">Independent Villa</option>
+                    <option value="office">Corporate Office</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="hqDate" class="form-label">Moving Date</label>
+                  <input type="date" id="hqDate" name="date" class="form-control" required>
+                </div>
+                <input type="hidden" name="autocalc" value="true">
+                <button type="submit" class="btn btn-primary btn-icon-right">
+                  <span>Calculate Estimate</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. CORE SECTION: SERVICES OVERVIEW (6 Cards with custom SVG + Photo)
+         ====================================================================== -->
+    <section class="section section-white" id="services-overview" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">What We Do</span>
+          <h2 id="services-heading">Tailored Relocation Solutions</h2>
+          <p class="text-lead">
+            Every relocation is unique. Our certified moving crews, heavy-duty packing supplies, and customized carrier fleet guarantee safe arrival.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1: Residential Moving -->
+          <article class="service-card reveal reveal-up delay-1">
+            <div class="service-card-media">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Apartment relocation with boxes and furniture" class="service-card-img" loading="lazy">
+              <span class="service-card-badge">Most Popular</span>
+              <div class="service-card-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Residential Moving</h3>
+              <p class="service-card-text">
+                Full-service household relocation from 1BHKs to luxury villas. Includes precision room packing, loading, transit, and unpacking support.
+              </p>
+              <div class="service-card-footer">
+                <a href="services.html#residential" class="link-arrow">
+                  <span>Learn Details</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Office Relocation -->
+          <article class="service-card reveal reveal-up delay-2">
+            <div class="service-card-media">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Corporate office desks and modern workspace relocation" class="service-card-img" loading="lazy">
+              <span class="service-card-badge">Zero Downtime</span>
+              <div class="service-card-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Office Relocation</h3>
+              <p class="service-card-text">
+                Dedicated weekend and overnight enterprise moving. Safe handling of servers, workstations, archives, and conference systems.
+              </p>
+              <div class="service-card-footer">
+                <a href="services.html#office" class="link-arrow">
+                  <span>Learn Details</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Packing & Unpacking -->
+          <article class="service-card reveal reveal-up delay-3">
+            <div class="service-card-media">
+              <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=600&q=80" alt="Careful packing of glassware and delicate items" class="service-card-img" loading="lazy">
+              <span class="service-card-badge">5-Ply Protection</span>
+              <div class="service-card-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                  <rect x="1" y="3" width="22" height="5"></rect>
+                  <line x1="10" y1="12" x2="14" y2="12"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Packing & Unpacking</h3>
+              <p class="service-card-text">
+                Multi-layer cushioning using virgin air-bubble wrap, heavy corrugated cartons, edge buffers, and labeled fragile crating.
+              </p>
+              <div class="service-card-footer">
+                <a href="services.html#packing" class="link-arrow">
+                  <span>Learn Details</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Furniture Handling -->
+          <article class="service-card reveal reveal-up delay-1">
+            <div class="service-card-media">
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" alt="Comfortable sofa and wooden furniture disassembly" class="service-card-img" loading="lazy">
+              <span class="service-card-badge">Carpentry Trained</span>
+              <div class="service-card-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Furniture Handling</h3>
+              <p class="service-card-text">
+                Expert disassembly of modular beds, dining tables, and wardrobes with secure hardware labeling, reassembled perfectly at your destination.
+              </p>
+              <div class="service-card-footer">
+                <a href="services.html#furniture" class="link-arrow">
+                  <span>Learn Details</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Loading & Unloading -->
+          <article class="service-card reveal reveal-up delay-2">
+            <div class="service-card-media">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Hydraulic tailgate loading cargo truck" class="service-card-img" loading="lazy">
+              <span class="service-card-badge">Hydraulic Lifts</span>
+              <div class="service-card-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Loading & Unloading</h3>
+              <p class="service-card-text">
+                Heavy lifting performed using specialized hydraulic dollies, ramps, and harness straps. No scuffs on staircases or elevators.
+              </p>
+              <div class="service-card-footer">
+                <a href="services.html#loading" class="link-arrow">
+                  <span>Learn Details</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: Storage Solutions -->
+          <article class="service-card reveal reveal-up delay-3">
+            <div class="service-card-media">
+              <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=600&q=80" alt="Modern clean secure warehouse facility" class="service-card-img" loading="lazy">
+              <span class="service-card-badge">24/7 CCTV Monitored</span>
+              <div class="service-card-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Storage Solutions</h3>
+              <p class="service-card-text">
+                Short and long-term climate-controlled storage units. Fire-retardant, pest-managed, with weekly digital inventory auditing.
+              </p>
+              <div class="service-card-footer">
+                <a href="services.html#storage" class="link-arrow">
+                  <span>Learn Details</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. OPTIONAL SECTION: PROCESS TIMELINE (6-step visual strip)
+         ====================================================================== -->
+    <section class="section section-white" style="background-color: #F8FAFC;" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">How It Works</span>
+          <h2 id="process-heading">Your Move, Simplified</h2>
+          <p class="text-lead">
+            Six disciplined stages ensuring complete transparency, on-time delivery, and total peace of mind.
+          </p>
+        </div>
+
+        <div class="process-strip">
+          <div class="process-steps-track">
+            <!-- Continuous SVG animated path connecting step markers -->
+            <svg class="process-svg-line" viewBox="0 0 1000 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M 0,5 L 1000,5" class="process-line-draw" />
+            </svg>
+
+            <!-- Step 1 -->
+            <div class="process-step-item reveal reveal-up delay-1">
+              <div class="process-step-num">01</div>
+              <h4 class="process-step-title">Plan</h4>
+              <p class="process-step-desc">Free survey & transparent fixed quote</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="process-step-item reveal reveal-up delay-2">
+              <div class="process-step-num">02</div>
+              <h4 class="process-step-title">Pack</h4>
+              <p class="process-step-desc">Multi-layer protection & room labeling</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="process-step-item reveal reveal-up delay-3">
+              <div class="process-step-num">03</div>
+              <h4 class="process-step-title">Load</h4>
+              <p class="process-step-desc">Hydraulic lift gates & anchored straps</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="process-step-item reveal reveal-up delay-4">
+              <div class="process-step-num">04</div>
+              <h4 class="process-step-title">Move</h4>
+              <p class="process-step-desc">Dedicated GPS-tracked container truck</p>
+            </div>
+            <!-- Step 5 -->
+            <div class="process-step-item reveal reveal-up delay-5">
+              <div class="process-step-num">05</div>
+              <h4 class="process-step-title">Deliver</h4>
+              <p class="process-step-desc">Room-by-room unloading & unpacking</p>
+            </div>
+            <!-- Step 6 -->
+            <div class="process-step-item reveal reveal-up delay-5">
+              <div class="process-step-num">06</div>
+              <h4 class="process-step-title">Settle</h4>
+              <p class="process-step-desc">Furniture reassembly & clean debris exit</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. CORE SECTION: WHY CHOOSE US (Split photo left, checklist right + stats)
+         ====================================================================== -->
+    <section class="section section-white" id="why-choose-us" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="split-why-grid">
+          <!-- Left: Real Photo + Floating Trust Card -->
+          <div class="why-visual-wrap reveal reveal-left">
+            <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" alt="MoveEase logistics truck on highway" class="why-photo-main" loading="lazy">
+            <div class="why-floating-badge">
+              <div class="badge-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <strong>100% In-House Staff</strong>
+              <p>No outsourced contractors or third-party daily laborers.</p>
+            </div>
+          </div>
+
+          <!-- Right: Checklist & Stat Counters -->
+          <div class="why-content reveal reveal-right delay-2">
+            <span class="section-tag">Why MoveEase</span>
+            <h2 id="why-heading">Built On Reliability & Modern Logistics</h2>
+            <p class="text-lead">
+              Moving your home or business shouldn't involve broken promises, hidden transit fees, or careless handling. We operate with strict corporate standards.
+            </p>
+
+            <div class="why-checklist">
+              <div class="why-check-item">
+                <div class="why-check-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="why-check-text">
+                  <h4>Vetted Moving Professionals</h4>
+                  <p>Background-verified, uniform-wearing full-time crew.</p>
+                </div>
+              </div>
+
+              <div class="why-check-item">
+                <div class="why-check-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="why-check-text">
+                  <h4>Custom Crating & Wrapping</h4>
+                  <p>Specialized heavy padding for TVs, marble, and glassware.</p>
+                </div>
+              </div>
+
+              <div class="why-check-item">
+                <div class="why-check-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="why-check-text">
+                  <h4>Live Telematics Tracking</h4>
+                  <p>Follow your carrier truck in real-time until delivery.</p>
+                </div>
+              </div>
+
+              <div class="why-check-item">
+                <div class="why-check-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="why-check-text">
+                  <h4>Comprehensive Transit Cover</h4>
+                  <p>Full-value goods protection policy underwritten directly.</p>
+                </div>
+              </div>
+
+              <div class="why-check-item">
+                <div class="why-check-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="why-check-text">
+                  <h4>Guaranteed Delivery Windows</h4>
+                  <p>Strict schedule adherence with financial penalty clauses.</p>
+                </div>
+              </div>
+
+              <div class="why-check-item">
+                <div class="why-check-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="why-check-text">
+                  <h4>Post-Move Debris Clearance</h4>
+                  <p>We pack up empty cartons and dispose them responsibly.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 Animated Stat Counters (Fires Once Upon Entry) -->
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-number" data-target="10000" data-suffix="+">0</div>
+                <div class="stat-label">Moves Completed</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="98" data-suffix="%">0</div>
+                <div class="stat-label">On-Time Arrival</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="25" data-suffix="+">0</div>
+                <div class="stat-label">City Hubs</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+                <div class="stat-label">Client Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. CORE SECTION: PACKAGES (3 Pricing Cards with Features)
+         ====================================================================== -->
+    <section class="section" id="packages" aria-labelledby="packages-heading">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">Flexible Plans</span>
+          <h2 id="packages-heading">Move Packages For Every Need</h2>
+          <p class="text-lead">
+            Transparent pricing tailored to move volume, distance, and desired service level. No hidden fuel surcharges or surprise tolls.
+          </p>
+        </div>
+
+        <div class="packages-grid">
+          <!-- Package 1: Essential -->
+          <div class="package-card reveal reveal-up delay-1">
+            <div class="package-header">
+              <h3 class="package-title">Essential</h3>
+              <p class="package-subtitle">Ideal for local moves, students & minimalists</p>
+              <div class="package-quote-label">Custom Quote</div>
+              <p class="text-xs text-secondary" style="margin-top: 4px;">Based on inventory & distance</p>
+            </div>
+            <ul class="package-features">
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Standard Container Truck</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>2 Professional Movers</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Loading & Unloading Handling</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Standard Transit Insurance</span>
+              </li>
+              <li class="package-feature-item disabled">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Full Unpacking & Arrangement</span>
+              </li>
+              <li class="package-feature-item disabled">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Appliance De-installation</span>
+              </li>
+            </ul>
+            <div class="package-actions">
+              <a href="orders.html?plan=essential" class="btn btn-outline" style="width: 100%;">Get Quote</a>
+            </div>
+          </div>
+
+          <!-- Package 2: Complete (Featured / Most Popular) -->
+          <div class="package-card featured reveal reveal-up delay-2">
+            <div class="package-badge-top">Most Popular</div>
+            <div class="package-header">
+              <h3 class="package-title">Complete</h3>
+              <p class="package-subtitle">Full-service care for 2BHK & 3BHK homes</p>
+              <div class="package-quote-label text-blue">Custom Quote</div>
+              <p class="text-xs text-secondary" style="margin-top: 4px;">Tailored inspection rate</p>
+            </div>
+            <ul class="package-features">
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Dedicated Heavy Carrier Fleet</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>4 Senior Trained Movers + Supervisor</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Multi-Layer 5-Ply Packing</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Furniture Dismantling & Assembly</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Real-Time GPS Tracking Portal</span>
+              </li>
+              <li class="package-feature-item disabled">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Fine Art Climate Crating</span>
+              </li>
+            </ul>
+            <div class="package-actions">
+              <a href="orders.html?plan=complete" class="btn btn-primary" style="width: 100%;">Get Quote</a>
+            </div>
+          </div>
+
+          <!-- Package 3: Premium -->
+          <div class="package-card reveal reveal-up delay-3">
+            <div class="package-header">
+              <h3 class="package-title">Premium White-Glove</h3>
+              <p class="package-subtitle">Luxury villas, penthouses & corporate executives</p>
+              <div class="package-quote-label">Custom Quote</div>
+              <p class="text-xs text-secondary" style="margin-top: 4px;">Comprehensive relocation turnkey</p>
+            </div>
+            <ul class="package-features">
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Exclusive Air-Suspension Carrier</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Full Crew + Dedicated Move Manager</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Turnkey Packing, Unpacking & Setup</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Custom Wooden Crating for Valuables</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>15-Day Complimentary Secure Storage</span>
+              </li>
+              <li class="package-feature-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Post-Move Deep Home Clean Option</span>
+              </li>
+            </ul>
+            <div class="package-actions">
+              <a href="orders.html?plan=premium" class="btn btn-outline" style="width: 100%;">Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. OPTIONAL SECTION: SERVICE AREAS (Interactive SVG Map Illustration)
+         ====================================================================== -->
+    <section class="section section-white" id="service-areas" aria-labelledby="areas-heading">
+      <div class="container">
+        <div class="service-areas-wrap">
+          <!-- Left: Information & Quick Selectors -->
+          <div class="reveal reveal-left">
+            <span class="section-tag">Coverage Network</span>
+            <h2 id="areas-heading">South India's Most Connected Relocation Grid</h2>
+            <p class="text-lead">
+              Daily scheduled routes across Tamil Nadu, Karnataka, and Telangana with local hubs in 8 major strategic cities.
+            </p>
+            <p class="text-sm">Click on any city pin to view hub logistics capabilities:</p>
+
+            <div class="cities-pill-grid" role="group" aria-label="Select City to view service status">
+              <button type="button" class="city-pill active" data-city="chennai">Chennai (HQ)</button>
+              <button type="button" class="city-pill" data-city="bangalore">Bangalore</button>
+              <button type="button" class="city-pill" data-city="hyderabad">Hyderabad</button>
+              <button type="button" class="city-pill" data-city="coimbatore">Coimbatore</button>
+              <button type="button" class="city-pill" data-city="madurai">Madurai</button>
+              <button type="button" class="city-pill" data-city="salem">Salem</button>
+              <button type="button" class="city-pill" data-city="trichy">Trichy</button>
+              <button type="button" class="city-pill" data-city="pondicherry">Pondicherry</button>
+            </div>
+
+            <!-- Dynamic City Information Card (Updated via JS, NO alert) -->
+            <div class="map-status-card" id="mapStatusBox">
+              <div class="map-status-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="map-status-info">
+                <h4 id="mapStatusCity">Chennai Hub</h4>
+                <p id="mapStatusNote">Primary Headquarters. 45+ daily active carrier trucks & 4 local dispatch depots.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Hand-Coded Interactive SVG Regional Map Graphic -->
+          <div class="map-illustration-box reveal reveal-right delay-2">
+            <svg class="map-svg-art" viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive map of South India relocation hubs">
+              <!-- Regional Outlines / Land Contours -->
+              <path d="M 40 40 Q 180 30, 280 60 Q 400 80, 420 160 Q 430 260, 360 340 Q 260 370, 160 330 Q 80 280, 60 160 Z" fill="#0E2842" stroke="#1E446B" stroke-width="2" />
+              
+              <!-- Corridors Highway Network -->
+              <path d="M 330 180 L 220 190 L 150 250 L 200 310" stroke="#36A9E1" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.6" />
+              <path d="M 220 190 L 230 90" stroke="#36A9E1" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.6" />
+              <path d="M 330 180 L 350 220 L 270 280" stroke="#36A9E1" stroke-width="2.5" stroke-dasharray="4 4" opacity="0.6" />
+
+              <!-- Hyderabad Hub (Top) -->
+              <g class="map-pin" data-city="hyderabad" transform="translate(230, 90)">
+                <circle cx="0" cy="0" r="14" fill="#1769AA" opacity="0.25" class="map-pin-pulse" />
+                <circle cx="0" cy="0" r="6" fill="#F59E0B" />
+                <text x="10" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="600">Hyderabad</text>
+              </g>
+
+              <!-- Bangalore Hub (Center Left) -->
+              <g class="map-pin" data-city="bangalore" transform="translate(200, 190)">
+                <circle cx="0" cy="0" r="14" fill="#1769AA" opacity="0.25" class="map-pin-pulse" />
+                <circle cx="0" cy="0" r="6" fill="#F59E0B" />
+                <text x="-65" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="600">Bangalore</text>
+              </g>
+
+              <!-- Chennai Hub (Center Right / East Coast) -->
+              <g class="map-pin" data-city="chennai" transform="translate(330, 180)">
+                <circle cx="0" cy="0" r="16" fill="#F59E0B" opacity="0.3" class="map-pin-pulse" />
+                <circle cx="0" cy="0" r="7" fill="#F59E0B" />
+                <text x="12" y="4" fill="#F59E0B" font-family="'Outfit', sans-serif" font-size="12" font-weight="700">Chennai (HQ)</text>
+              </g>
+
+              <!-- Pondicherry -->
+              <g class="map-pin" data-city="pondicherry" transform="translate(345, 230)">
+                <circle cx="0" cy="0" r="5" fill="#36A9E1" />
+                <text x="10" y="4" fill="#E2E8F0" font-family="'Outfit', sans-serif" font-size="10">Pondicherry</text>
+              </g>
+
+              <!-- Salem (Central) -->
+              <g class="map-pin" data-city="salem" transform="translate(240, 240)">
+                <circle cx="0" cy="0" r="5" fill="#36A9E1" />
+                <text x="10" y="4" fill="#E2E8F0" font-family="'Outfit', sans-serif" font-size="10">Salem</text>
+              </g>
+
+              <!-- Coimbatore (West) -->
+              <g class="map-pin" data-city="coimbatore" transform="translate(160, 260)">
+                <circle cx="0" cy="0" r="6" fill="#F59E0B" />
+                <text x="-72" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="600">Coimbatore</text>
+              </g>
+
+              <!-- Trichy (Central South) -->
+              <g class="map-pin" data-city="trichy" transform="translate(270, 280)">
+                <circle cx="0" cy="0" r="5" fill="#36A9E1" />
+                <text x="10" y="4" fill="#E2E8F0" font-family="'Outfit', sans-serif" font-size="10">Trichy</text>
+              </g>
+
+              <!-- Madurai (South) -->
+              <g class="map-pin" data-city="madurai" transform="translate(230, 320)">
+                <circle cx="0" cy="0" r="6" fill="#F59E0B" />
+                <text x="10" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="600">Madurai</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. CORE SECTION: TESTIMONIALS SLIDER (JS Touch-Friendly Carousel)
+         ====================================================================== -->
+    <section class="section" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">Customer Stories</span>
+          <h2 id="testimonials-heading">Loved By Thousands of Relocated Families</h2>
+          <p class="text-lead">
+            Real feedback from verified residential and commercial moves across Chennai, Bangalore, and Hyderabad.
+          </p>
+        </div>
+
+        <div class="testimonials-slider-container reveal reveal-up delay-2">
+          <div class="slider-track-wrap">
+            <div class="slider-track">
+              <!-- Slide 1 -->
+              <div class="testimonial-slide">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "Relocating our 3BHK from Adyar to Whitefield in Bangalore was seamless. The MoveEase team arrived on time with heavy corrugated sheets and bubble wrapped each wooden chair individually. Not a single scratch on our dining glass table."
+                </blockquote>
+                <div class="testimonial-author">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=80" alt="Priya Sundaram" class="author-avatar" loading="lazy">
+                  <div class="author-info">
+                    <h4>Priya Sundaram</h4>
+                    <p>Chennai to Bangalore · 3BHK Household Move</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="testimonial-slide">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "We shifted our 45-person design studio over a single weekend. Server racks, monitors, and ergonomic chairs were labeled and placed exactly as planned. We were fully operational Monday morning without a minute of downtime."
+                </blockquote>
+                <div class="testimonial-author">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=140&q=80" alt="Karthik Narayanan" class="author-avatar" loading="lazy">
+                  <div class="author-info">
+                    <h4>Karthik Narayanan</h4>
+                    <p>Director, PixelWorks Studio · Office Relocation</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="testimonial-slide">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "The cost estimator on their website gave us an accurate benchmark. When the crew arrived in Coimbatore, there were no forced tips or hidden transit taxes. Professional, respectful, and fast."
+                </blockquote>
+                <div class="testimonial-author">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=140&q=80" alt="Ananya Venkat" class="author-avatar" loading="lazy">
+                  <div class="author-info">
+                    <h4>Ananya Venkat</h4>
+                    <p>Coimbatore to Chennai · 2BHK Apartment Move</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="slider-controls">
+            <button type="button" class="slider-arrow slider-prev" aria-label="Previous testimonial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="slider-dots" role="tablist" aria-label="Testimonial slides pagination"></div>
+            <button type="button" class="slider-arrow slider-next" aria-label="Next testimonial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. OPTIONAL SECTION: FAQ ACCORDION (7 Concise Real Relocation Questions)
+         ====================================================================== -->
+    <section class="section section-white" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">Frequently Asked Questions</span>
+          <h2 id="faq-heading">Got Questions? We Have Honest Answers</h2>
+          <p class="text-lead">
+            Everything you need to know about pricing, packing standards, transit insurance, and scheduling.
+          </p>
+        </div>
+
+        <div class="faq-list reveal reveal-up delay-2">
+          <!-- Question 1 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How far in advance should I schedule my move?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                We recommend booking at least 5 to 7 days in advance for interstate moves, and 2 to 3 days for local city relocations. This guarantees optimal truck size allocation and customized packing material preparation. For urgent next-day moves, contact our express dispatch desk.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Are there any hidden charges like tolls, fuel surcharges, or floor fees?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No. MoveEase operates on a transparent fixed-rate contract. Toll taxes, GST, fuel, and standard floor lifting (elevator or up to 3rd floor by stairs) are clearly itemized before you confirm your booking. The price stated in your final quote is what you pay.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>How are fragile items, glassware, and electronics protected?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Fragile items undergo multi-tier protection: individual wrapping with virgin bubble film, heavy duty foam corner protectors, and placement in 5-ply double-walled corrugated boxes marked with high-visibility fragile labels. For marble tops and large TVs, we build custom wooden crates.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Does MoveEase provide transit insurance for my belongings?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. Every relocation includes transit insurance underwritten by accredited national insurance partners. It protects against accidental road mishaps, vehicle overturn, fire, and structural handling damage. You can choose full-value goods coverage during step 2 of booking.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Can I track the moving vehicle in real-time?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. Once your shipment departs your origin home, an SMS and email with an active GPS tracking link is dispatched. You can view the live carrier location, route progress, and estimated delivery hour directly on your phone.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>Do your movers dismantle and reassemble furniture?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. Our crew includes trained carpenters who dismantle king/queen size beds, modular wardrobes, and dining tables at origin, cataloging screws and fittings into secure pouch bags. At destination, everything is reassembled and placed in your chosen rooms.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 7 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question">
+              <span>What items are prohibited from being transported in the moving truck?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                For legal compliance and safety, our carriers do not transport combustible materials (gas cylinders, kerosene, paint thinners), perishable food items, contraband, raw cash, personal jewelry, or pets. We guide you on safe alternatives for special items.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9. FINAL CTA SECTION (Dark Navy Band + Animated Road/Truck SVG)
+         ====================================================================== -->
+    <section class="final-cta-section" aria-labelledby="cta-heading">
+      <!-- Animated Road Line Art in Background -->
+      <svg class="final-cta-road-svg" viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none" aria-hidden="true">
+        <line x1="0" y1="50" x2="1200" y2="50" stroke="#36A9E1" stroke-width="2" />
+        <line x1="0" y1="35" x2="1200" y2="35" class="anim-route-line" stroke="#F59E0B" stroke-width="3" />
+      </svg>
+      <div class="container">
+        <div class="final-cta-inner">
+          <div class="final-cta-text reveal reveal-left">
+            <h2 id="cta-heading">Ready For Your Next Move?</h2>
+            <p>
+              Experience a seamless, on-time relocation with verified professionals. Get your tailored quote in under 2 minutes.
+            </p>
+          </div>
+          <div class="final-cta-buttons reveal reveal-right delay-1">
+            <a href="home2.html" class="btn btn-primary btn-lg">Calculate Cost</a>
+            <a href="orders.html" class="btn btn-outline-white btn-lg">Book Your Move</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER (Consistent on all pages)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Tagline -->
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #FFFFFF;">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="44" height="44" rx="10" fill="#1769AA" />
+              <path d="M10 28L18 16L26 28H10Z" fill="#FFFFFF" />
+              <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+              <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+            </svg>
+            <span>Move<span class="accent">Ease</span></span>
+          </div>
+          <p>
+            South India's premier relocation enterprise delivering safe household moving, corporate office shifts, and insured secure storage.
+          </p>
+          <div class="footer-socials" aria-label="MoveEase Social Media Profiles">
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Cost Estimator</a></li>
+            <li><a href="about.html">About Company</a></li>
+            <li><a href="services.html">Services Catalogue</a></li>
+            <li><a href="orders.html">Book Your Move</a></li>
+            <li><a href="blogs.html">Relocation Guide</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#residential">Residential Relocation</a></li>
+            <li><a href="services.html#office">Office Shifting</a></li>
+            <li><a href="services.html#packing">Premium Packing</a></li>
+            <li><a href="services.html#furniture">Furniture Assembly</a></li>
+            <li><a href="services.html#storage">Warehouse Storage</a></li>
+            <li><a href="services.html#vehicle">Car & Bike Transit</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Snippet -->
+        <div class="footer-col">
+          <h4>Contact & Support</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+91 44 2847 9100 / 1800-420-6683</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>support@moveease.in</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>MoveEase Tower, Mount Road, Chennai, TN 600002</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 MoveEase Logistics India Private Limited. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+          <a href="contact.html">Transit Insurance Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/faq.js"></script>
+</body>
+</html>

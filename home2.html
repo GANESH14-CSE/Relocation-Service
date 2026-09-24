@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Move Planner — MoveEase Relocations</title>
+  <meta name="description" content="What are you moving today? Choose your category—home, office, car, bike, furniture, appliances, small items, or commercial goods—and plan your move with MoveEase.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Global Navbar (Identical to Home) -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="MoveEase Home">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+          <rect x="12" y="30" width="20" height="2.5" rx="1" fill="#FFFFFF" opacity="0.8" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link active">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="blogs.html" class="nav-link">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="basket-btn" aria-label="View selected moving services" title="Move Basket">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="basket-badge" style="display: none;">0</span>
+        </button>
+        <a href="orders.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <svg width="34" height="34" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </div>
+      <button type="button" class="mobile-close-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="home2.html" class="mobile-nav-link active">Home 2 (Move Planner)</a>
+      <a href="about.html" class="mobile-nav-link">About MoveEase</a>
+      <a href="services.html" class="mobile-nav-link">Our Services</a>
+      <a href="orders.html" class="mobile-nav-link">Book a Move</a>
+      <a href="blogs.html" class="mobile-nav-link">Relocation Blogs</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    </nav>
+    <div style="margin-top: auto; padding-top: var(--space-5);">
+      <a href="orders.html" class="btn btn-primary" style="width: 100%;">Get a Free Quote</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ======================================================================
+         1. [CORE] HERO + 8 CATEGORY SELECTOR (The centerpiece interaction)
+         ====================================================================== -->
+    <section class="section" id="category-planner" style="padding-top: var(--space-7); padding-bottom: var(--space-6);">
+      <div class="container">
+        <div class="section-header reveal reveal-up" style="margin-bottom: var(--space-6);">
+          <span class="section-tag">Interactive Move Planner</span>
+          <h1>What Are You Moving Today?</h1>
+          <p class="text-lead">
+            From your entire home to a single bike, choose what you need to move and we'll help you plan the rest.
+          </p>
+        </div>
+
+        <!-- 8 Large Interactive Category Cards -->
+        <div class="planner-categories-grid reveal reveal-up delay-1" role="tablist" aria-label="Select Category to Move">
+          <!-- 1. Home -->
+          <div class="planner-cat-card active" data-cat="home" role="tab" tabindex="0" aria-selected="true">
+            <div class="planner-cat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3>Home</h3>
+            <span>1-4 BHK & Villas</span>
+          </div>
+
+          <!-- 2. Office -->
+          <div class="planner-cat-card" data-cat="office" role="tab" tabindex="0" aria-selected="false">
+            <div class="planner-cat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <h3>Office</h3>
+            <span>Desks, IT & Files</span>
+          </div>
+
+          <!-- 3. Car -->
+          <div class="planner-cat-card" data-cat="car" role="tab" tabindex="0" aria-selected="false">
+            <div class="planner-cat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3>Car</h3>
+            <span>Sedan, SUV & Luxury</span>
+          </div>
+
+          <!-- 4. Bike -->
+          <div class="planner-cat-card" data-cat="bike" role="tab" tabindex="0" aria-selected="false">
+            <div class="planner-cat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 9l4.5-3L17 9"></path>
+              </svg>
+            </div>
+            <h3>Bike</h3>
+            <span>Commuter & Sports</span>
+          </div>
+
+          <!-- 5. Furniture -->
+          <div class="planner-cat-card" data-cat="furniture" role="tab" tabindex="0" aria-selected="false">
+            <div class="planner-cat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+            </div>
+            <h3>Furniture</h3>
+            <span>Beds, Sofas & Tables</span>
+          </div>
+
+          <!-- 6. Appliances -->
+          <div class="planner-cat-card" data-cat="appliances" role="tab" tabindex="0" aria-selected="false">
+            <div class="planner-cat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                <line x1="4" y1="10" x2="20" y2="10"></line>
+                <line x1="8" y1="6" x2="8.01" y2="6"></line>
+                <line x1="8" y1="14" x2="8.01" y2="14"></line>
+              </svg>
+            </div>
+            <h3>Appliances</h3>
+            <span>Fridges, TVs & Washers</span>
+          </div>
+
+          <!-- 7. Small Items -->
+          <div class="planner-cat-card" data-cat="small" role="tab" tabindex="0" aria-selected="false">
+            <div class="planner-cat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                <rect x="1" y="3" width="22" height="5"></rect>
+                <line x1="10" y1="12" x2="14" y2="12"></line>
+              </svg>
+            </div>
+            <h3>Small Items</h3>
+            <span>Boxes & Single Rooms</span>
+          </div>
+
+          <!-- 8. Commercial Goods -->
+          <div class="planner-cat-card" data-cat="commercial" role="tab" tabindex="0" aria-selected="false">
+            <div class="planner-cat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              </svg>
+            </div>
+            <h3>Commercial</h3>
+            <span>Freight & Inventory</span>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             2. [CORE] CATEGORY INTERACTION DETAIL PANEL (Expands Smoothly)
+             ================================================================== -->
+        <div class="category-detail-panel reveal reveal-scale" id="categoryDetailPanel">
+          <div class="detail-panel-grid">
+            <!-- Left: Options Chips -->
+            <div class="detail-panel-block">
+              <h4 id="catPanelTitle">Home Relocation Options</h4>
+              <p id="catPanelSubtitle" class="text-xs" style="color: var(--color-text-secondary); margin-bottom: var(--space-3);">
+                Apartments, independent houses, and villas with full-room packing.
+              </p>
+              <div class="option-chips-wrap" id="catOptionsChips">
+                <!-- Dynamically generated chips -->
+              </div>
+            </div>
+
+            <!-- Middle: Key Services Shown -->
+            <div class="detail-panel-block">
+              <h4>Included Logistics Standards</h4>
+              <div class="services-tags-wrap" id="catServicesTags">
+                <!-- Dynamically generated service tags -->
+              </div>
+            </div>
+
+            <!-- Right: Action CTA carrying selection to Orders -->
+            <div class="detail-panel-block" style="text-align: center; border-left: 1px solid var(--color-border); padding-left: var(--space-4);">
+              <span class="badge badge-orange" style="margin-bottom: var(--space-2);">Instant Route Slot</span>
+              <p class="text-xs" style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                Ready to configure route & date with this category?
+              </p>
+              <a href="orders.html" id="catPanelCta" class="btn btn-primary" style="width: 100%;">Plan My Home Move</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. [CORE] INDIA-WIDE SERVICES / 15-CITY COVERAGE MAP
+         ====================================================================== -->
+    <section class="section section-white" id="india-coverage" aria-labelledby="coverage-heading">
+      <div class="container">
+        <div class="india-services-grid">
+          <!-- Left: Information & Breadth -->
+          <div class="reveal reveal-left">
+            <span class="section-tag">National Connectivity</span>
+            <h2 id="coverage-heading">Moving Across India</h2>
+            <p class="text-lead">
+              Wherever you're moving, our relocation network helps connect your pickup and destination with scheduled truck departures and verified logistics hubs.
+            </p>
+
+            <div class="why-checklist" style="margin-top: var(--space-4); margin-bottom: var(--space-4);">
+              <div class="why-check-item">
+                <div class="why-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="why-check-text"><strong>Local City Moves:</strong> Rapid same-day apartment & office relocation within metro areas.</div>
+              </div>
+              <div class="why-check-item">
+                <div class="why-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="why-check-text"><strong>Intercity Corridors:</strong> Direct daily container transit between major economic capitals.</div>
+              </div>
+              <div class="why-check-item">
+                <div class="why-check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="why-check-text"><strong>Pan-India Relocation:</strong> End-to-end interstate moving with live GPS telematics tracking.</div>
+              </div>
+            </div>
+
+            <!-- Active Selected City Card -->
+            <div class="map-status-card" id="indiaCityCard" style="background-color: var(--color-bg); border-color: var(--color-border); color: var(--color-navy);">
+              <div class="map-status-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="map-status-info">
+                <h4 id="indiaActiveCity" style="color: var(--color-navy);">Chennai Central Hub</h4>
+                <p id="indiaActiveNote" style="color: var(--color-text-secondary);">Southern headquarters with 45+ daily scheduled carrier departures and storage bays.</p>
+              </div>
+            </div>
+
+            <!-- Mandatory Prominent Disclaimer -->
+            <div class="map-disclaimer-note">
+              <strong>Network Notice:</strong> Service availability may vary by location. Transit times and carrier container availability depend on highway corridor conditions and local municipal restrictions.
+            </div>
+          </div>
+
+          <!-- Right: Custom SVG India Map with 15 Animated Hub Pins -->
+          <div class="india-map-box reveal reveal-right delay-2">
+            <svg class="india-svg-art" viewBox="0 0 460 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Interactive SVG map of India showing 15 MoveEase regional relocation hubs">
+              <!-- Geometric Outlines of India Subcontinent -->
+              <path d="M 180 40 L 220 50 L 250 90 L 320 120 L 350 170 L 300 200 L 290 260 L 250 330 L 220 440 L 190 380 L 160 330 L 120 280 L 100 230 L 120 170 L 140 120 Z" fill="#0E2842" stroke="#1E446B" stroke-width="2" />
+              
+              <!-- Arterial Transit Corridors -->
+              <path d="M 180 120 L 130 250 L 180 340 L 220 370" stroke="#36A9E1" stroke-width="2" stroke-dasharray="4 4" opacity="0.6" />
+              <path d="M 180 120 L 220 230 L 220 370" stroke="#36A9E1" stroke-width="2" stroke-dasharray="4 4" opacity="0.6" />
+              <path d="M 220 370 L 280 200" stroke="#36A9E1" stroke-width="2" stroke-dasharray="4 4" opacity="0.6" />
+
+              <!-- 15 PINS:
+                   Delhi, Jaipur, Ahmedabad, Mumbai, Pune, Kolkata, Hyderabad,
+                   Bangalore, Chennai, Coimbatore, Salem, Trichy, Madurai, Kochi, Pondicherry -->
+
+              <!-- Delhi -->
+              <g class="india-city-pin" data-city="delhi" transform="translate(180, 115)">
+                <circle cx="0" cy="0" r="10" fill="#36A9E1" opacity="0.25" class="map-pin-pulse" />
+                <circle cx="0" cy="0" r="5" fill="#F59E0B" />
+                <text x="8" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="10" font-weight="600">Delhi NCR</text>
+              </g>
+
+              <!-- Jaipur -->
+              <g class="india-city-pin" data-city="jaipur" transform="translate(150, 145)">
+                <circle cx="0" cy="0" r="4.5" fill="#36A9E1" />
+                <text x="-38" y="4" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="9">Jaipur</text>
+              </g>
+
+              <!-- Ahmedabad -->
+              <g class="india-city-pin" data-city="ahmedabad" transform="translate(120, 200)">
+                <circle cx="0" cy="0" r="4.5" fill="#36A9E1" />
+                <text x="-64" y="4" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="9">Ahmedabad</text>
+              </g>
+
+              <!-- Kolkata -->
+              <g class="india-city-pin" data-city="kolkata" transform="translate(290, 210)">
+                <circle cx="0" cy="0" r="5" fill="#F59E0B" />
+                <text x="8" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="10" font-weight="600">Kolkata</text>
+              </g>
+
+              <!-- Mumbai -->
+              <g class="india-city-pin" data-city="mumbai" transform="translate(125, 255)">
+                <circle cx="0" cy="0" r="10" fill="#36A9E1" opacity="0.25" class="map-pin-pulse" />
+                <circle cx="0" cy="0" r="5" fill="#F59E0B" />
+                <text x="-52" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="10" font-weight="600">Mumbai</text>
+              </g>
+
+              <!-- Pune -->
+              <g class="india-city-pin" data-city="pune" transform="translate(145, 275)">
+                <circle cx="0" cy="0" r="4.5" fill="#36A9E1" />
+                <text x="8" y="4" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="9">Pune</text>
+              </g>
+
+              <!-- Hyderabad -->
+              <g class="india-city-pin" data-city="hyderabad" transform="translate(195, 290)">
+                <circle cx="0" cy="0" r="10" fill="#36A9E1" opacity="0.25" class="map-pin-pulse" />
+                <circle cx="0" cy="0" r="5" fill="#F59E0B" />
+                <text x="8" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="10" font-weight="600">Hyderabad</text>
+              </g>
+
+              <!-- Bangalore -->
+              <g class="india-city-pin" data-city="bangalore" transform="translate(180, 345)">
+                <circle cx="0" cy="0" r="12" fill="#F59E0B" opacity="0.3" class="map-pin-pulse" />
+                <circle cx="0" cy="0" r="6" fill="#F59E0B" />
+                <text x="-64" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="700">Bangalore</text>
+              </g>
+
+              <!-- Chennai (HQ) -->
+              <g class="india-city-pin selected" data-city="chennai" transform="translate(230, 355)">
+                <circle cx="0" cy="0" r="14" fill="#F59E0B" opacity="0.4" class="map-pin-pulse" />
+                <circle cx="0" cy="0" r="7" fill="#F59E0B" />
+                <text x="12" y="4" fill="#F59E0B" font-family="'Outfit', sans-serif" font-size="12" font-weight="800">Chennai (HQ)</text>
+              </g>
+
+              <!-- Pondicherry -->
+              <g class="india-city-pin" data-city="pondicherry" transform="translate(235, 380)">
+                <circle cx="0" cy="0" r="4" fill="#36A9E1" />
+                <text x="8" y="3" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="8.5">Pondicherry</text>
+              </g>
+
+              <!-- Salem -->
+              <g class="india-city-pin" data-city="salem" transform="translate(195, 385)">
+                <circle cx="0" cy="0" r="4" fill="#36A9E1" />
+                <text x="-32" y="3" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="8.5">Salem</text>
+              </g>
+
+              <!-- Coimbatore -->
+              <g class="india-city-pin" data-city="coimbatore" transform="translate(170, 395)">
+                <circle cx="0" cy="0" r="5" fill="#F59E0B" />
+                <text x="-66" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="9" font-weight="600">Coimbatore</text>
+              </g>
+
+              <!-- Trichy -->
+              <g class="india-city-pin" data-city="trichy" transform="translate(210, 405)">
+                <circle cx="0" cy="0" r="4" fill="#36A9E1" />
+                <text x="8" y="3" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="8.5">Trichy</text>
+              </g>
+
+              <!-- Madurai -->
+              <g class="india-city-pin" data-city="madurai" transform="translate(195, 425)">
+                <circle cx="0" cy="0" r="5" fill="#F59E0B" />
+                <text x="8" y="4" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="9.5" font-weight="600">Madurai</text>
+              </g>
+
+              <!-- Kochi -->
+              <g class="india-city-pin" data-city="kochi" transform="translate(165, 435)">
+                <circle cx="0" cy="0" r="4.5" fill="#36A9E1" />
+                <text x="-36" y="4" fill="#CBD5E1" font-family="'Outfit', sans-serif" font-size="9">Kochi</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. [CORE] MOVE TYPE (Local / Intercity / Pan-India)
+         ====================================================================== -->
+    <section class="section" id="move-types" aria-labelledby="types-heading" style="background-color: var(--color-bg);">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">Logistics Scope</span>
+          <h2 id="types-heading">Choose Your Move</h2>
+          <p class="text-lead">
+            Select the relocation distance model that fits your timeline and volume requirements.
+          </p>
+        </div>
+
+        <div class="move-types-grid">
+          <!-- Card 1: Local Move -->
+          <div class="move-type-card reveal reveal-up delay-1">
+            <div class="move-type-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <h3>Local Move</h3>
+            <p class="text-xs" style="color: var(--color-text-secondary); margin: var(--space-2) 0 var(--space-4) 0; line-height: 1.5;">
+              Same-day shifting within metropolitan city boundaries. Dedicated packing crew, swift loading, and immediate unpacking.
+            </p>
+            <a href="orders.html?type=local" class="btn btn-outline btn-sm" style="margin-top: auto;">View Services</a>
+          </div>
+
+          <!-- Card 2: Intercity Move -->
+          <div class="move-type-card reveal reveal-up delay-2">
+            <div class="move-type-icon" style="background-color: var(--color-orange-subtle); color: var(--color-orange);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3>Intercity Move</h3>
+            <p class="text-xs" style="color: var(--color-text-secondary); margin: var(--space-2) 0 var(--space-4) 0; line-height: 1.5;">
+              Direct container transport between regional corridors (e.g. Chennai to Bangalore). Zero transshipment and GPS tracking.
+            </p>
+            <a href="orders.html?type=intercity" class="btn btn-primary btn-sm" style="margin-top: auto;">View Services</a>
+          </div>
+
+          <!-- Card 3: Pan-India Relocation -->
+          <div class="move-type-card reveal reveal-up delay-3">
+            <div class="move-type-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                <line x1="8" y1="2" x2="8" y2="18"></line>
+                <line x1="16" y1="6" x2="16" y2="22"></line>
+              </svg>
+            </div>
+            <h3>Pan-India Relocation</h3>
+            <p class="text-xs" style="color: var(--color-text-secondary); margin: var(--space-2) 0 var(--space-4) 0; line-height: 1.5;">
+              Long-distance interstate household and corporate shifting across all southern, western, and northern state networks.
+            </p>
+            <a href="orders.html?type=pan-india" class="btn btn-outline btn-sm" style="margin-top: auto;">View Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. [CORE] HOW WE HANDLE YOUR MOVE (7-Step Process with Self-Drawing Route)
+         ====================================================================== -->
+    <section class="section section-white" id="handle-move" aria-labelledby="handle-heading">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">Disciplined Execution</span>
+          <h2 id="handle-heading">How We Handle Your Move</h2>
+          <p class="text-lead">
+            A seven-stage coordinated workflow ensuring safe handling, timely dispatch, and zero transit confusion.
+          </p>
+        </div>
+
+        <div class="steps-7-track reveal reveal-up delay-1">
+          <svg class="steps-7-svg-line" viewBox="0 0 1000 10" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 0,5 L 1000,5" class="process-line-draw" />
+          </svg>
+
+          <!-- Step 1 -->
+          <div class="step-7-item">
+            <div class="step-7-num">01</div>
+            <div class="step-7-title">1. Tell Us What You're Moving</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-7-item">
+            <div class="step-7-num">02</div>
+            <div class="step-7-title">2. Choose Your Services</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-7-item">
+            <div class="step-7-num">03</div>
+            <div class="step-7-title">3. Get An Estimate</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-7-item">
+            <div class="step-7-num">04</div>
+            <div class="step-7-title">4. Schedule Your Move</div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="step-7-item">
+            <div class="step-7-num">05</div>
+            <div class="step-7-title">5. We Pack & Load</div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="step-7-item">
+            <div class="step-7-num">06</div>
+            <div class="step-7-title">6. We Transport</div>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="step-7-item">
+            <div class="step-7-num">07</div>
+            <div class="step-7-title">7. We Deliver</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. [OPTIONAL] MOVING CHECKLIST (Compact Interactive Widget)
+         ====================================================================== -->
+    <section class="section" id="moving-checklist" aria-labelledby="checklist-title" style="background-color: var(--color-bg);">
+      <div class="container">
+        <div class="section-header reveal reveal-up" style="margin-bottom: var(--space-5);">
+          <span class="section-tag">Preparation Widget</span>
+          <h2 id="checklist-title">Get Ready For Moving Day</h2>
+          <p class="text-lead">
+            Stay on track with 8 key countdown tasks. Your progress persists in your browser automatically.
+          </p>
+        </div>
+
+        <div class="checklist-widget-card reveal reveal-up delay-1">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-2);">
+            <h3 style="font-size: 1.15rem; color: var(--color-navy);">Relocation Readiness Progress</h3>
+            <span id="checklist8Text" style="font-size: var(--text-sm); font-weight: 700; color: var(--color-blue);">0 of 8 tasks completed (0%)</span>
+          </div>
+
+          <div class="checklist-progress-bar-wrap">
+            <div class="checklist-progress-bar" id="checklist8Bar"></div>
+          </div>
+
+          <div class="checklist-items-grid">
+            <label class="checklist-item-row">
+              <input type="checkbox" class="checklist-8-checkbox" data-idx="0">
+              <span>Confirm moving date & preferred arrival slot</span>
+            </label>
+
+            <label class="checklist-item-row">
+              <input type="checkbox" class="checklist-8-checkbox" data-idx="1">
+              <span>Sort & declutter unused household items</span>
+            </label>
+
+            <label class="checklist-item-row">
+              <input type="checkbox" class="checklist-8-checkbox" data-idx="2">
+              <span>Pack important documents & identity cards separately</span>
+            </label>
+
+            <label class="checklist-item-row">
+              <input type="checkbox" class="checklist-8-checkbox" data-idx="3">
+              <span>Label room cartons for immediate destination sorting</span>
+            </label>
+
+            <label class="checklist-item-row">
+              <input type="checkbox" class="checklist-8-checkbox" data-idx="4">
+              <span>Separate personal jewelry, raw cash & keys</span>
+            </label>
+
+            <label class="checklist-item-row">
+              <input type="checkbox" class="checklist-8-checkbox" data-idx="5">
+              <span>Disconnect & defrost refrigerator 24 hours prior</span>
+            </label>
+
+            <label class="checklist-item-row">
+              <input type="checkbox" class="checklist-8-checkbox" data-idx="6">
+              <span>Confirm society security gate permissions for truck</span>
+            </label>
+
+            <label class="checklist-item-row">
+              <input type="checkbox" class="checklist-8-checkbox" data-idx="7">
+              <span>Keep first-night survival box & chargers ready</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. [CORE] HOME 2 FINAL CTA
+         ====================================================================== -->
+    <section class="final-cta-section" aria-labelledby="home2-cta-heading">
+      <div class="container">
+        <div class="final-cta-inner">
+          <div class="final-cta-text reveal reveal-left">
+            <h2 id="home2-cta-heading">Tell Us What You're Moving.</h2>
+            <p>Choose your move type and start planning in a few simple steps with verified logistics support.</p>
+          </div>
+          <div class="final-cta-buttons reveal reveal-right delay-1">
+            <a href="#category-planner" class="btn btn-primary btn-lg">Start My Move</a>
+            <a href="orders.html" class="btn btn-outline-white btn-lg">Book Move Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer (Identical to Home) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #FFFFFF;">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="44" height="44" rx="10" fill="#1769AA" />
+              <path d="M10 28L18 16L26 28H10Z" fill="#FFFFFF" />
+              <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+              <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+            </svg>
+            <span>Move<span class="accent">Ease</span></span>
+          </div>
+          <p>Over a decade of verified, reliable household and corporate relocation across South India.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Cost Estimator</a></li>
+            <li><a href="about.html">About Company</a></li>
+            <li><a href="services.html">Services Catalogue</a></li>
+            <li><a href="orders.html">Book Your Move</a></li>
+            <li><a href="blogs.html">Relocation Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#residential">Residential Relocation</a></li>
+            <li><a href="services.html#office">Office Shifting</a></li>
+            <li><a href="services.html#packing">Premium Packing</a></li>
+            <li><a href="services.html#furniture">Furniture Assembly</a></li>
+            <li><a href="services.html#storage">Warehouse Storage</a></li>
+            <li><a href="services.html#vehicle">Car & Bike Transit</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact & Support</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+91 44 2847 9100 / 1800-420-6683</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>support@moveease.in</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>MoveEase Tower, Mount Road, Chennai, TN 600002</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 MoveEase Logistics India Private Limited. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+          <a href="contact.html">Transit Insurance Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/home2.js"></script>
+</body>
+</html>

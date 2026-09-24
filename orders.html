@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Relocation Service — MoveEase</title>
+  <meta name="description" content="Choose what you need to move: browse our service collections, build your custom relocation basket, calculate an indicative price range, and request your confirmed moving quote.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Global Navbar (Identical to Home) -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="MoveEase Home">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+          <rect x="12" y="30" width="20" height="2.5" rx="1" fill="#FFFFFF" opacity="0.8" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="orders.html" class="nav-link active">Orders</a>
+        <a href="blogs.html" class="nav-link">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="basket-btn" aria-label="View selected moving services" title="Move Basket">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="basket-badge" style="display: none;">0</span>
+        </button>
+        <a href="orders.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <svg width="34" height="34" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </div>
+      <button type="button" class="mobile-close-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="home2.html" class="mobile-nav-link">Home 2 (Move Planner)</a>
+      <a href="about.html" class="mobile-nav-link">About MoveEase</a>
+      <a href="services.html" class="mobile-nav-link">Our Services</a>
+      <a href="orders.html" class="mobile-nav-link active">Book a Move</a>
+      <a href="blogs.html" class="mobile-nav-link">Relocation Blogs</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+    </nav>
+    <div style="margin-top: auto; padding-top: var(--space-5);">
+      <a href="orders.html" class="btn btn-primary" style="width: 100%;">Get a Free Quote</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ======================================================================
+         1. [CORE] ORDERS HERO
+         ====================================================================== -->
+    <section class="section" style="padding-top: var(--space-7); padding-bottom: var(--space-5);">
+      <div class="container text-center">
+        <div class="reveal reveal-up" style="max-width: 720px; margin: 0 auto;">
+          <span class="section-tag">Collections $\rightarrow$ Cart $\rightarrow$ Booking</span>
+          <h1>Choose What You Need To Move</h1>
+          <p class="text-lead">
+            Select your moving requirement and build your relocation service. Pick one or multiple collections below to begin.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. [CORE] STAGE 1: SERVICE COLLECTIONS GRID (8 Cards)
+         ====================================================================== -->
+    <section class="section section-white" style="padding-top: var(--space-4); padding-bottom: var(--space-6);">
+      <div class="container">
+        <!-- 8 Interactive Collection Pick Cards -->
+        <div class="collections-8-grid reveal reveal-up delay-1">
+          <!-- Card 1: Home Moving -->
+          <div class="collection-pick-card selected" tabindex="0">
+            <div class="collection-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3>Home Moving</h3>
+            <p>Full apartment, house & villa shifting with verified crews.</p>
+            <button type="button" class="btn-select-service">Selected</button>
+          </div>
+
+          <!-- Card 2: Office Relocation -->
+          <div class="collection-pick-card" tabindex="0">
+            <div class="collection-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <h3>Office Relocation</h3>
+            <p>Weekend commercial moves, IT cabling, desks & server racks.</p>
+            <button type="button" class="btn-select-service">Select Service</button>
+          </div>
+
+          <!-- Card 3: Car Transport -->
+          <div class="collection-pick-card" tabindex="0">
+            <div class="collection-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3>Car Transport</h3>
+            <p>Dedicated enclosed car carriers with tire chock tie-downs.</p>
+            <button type="button" class="btn-select-service">Select Service</button>
+          </div>
+
+          <!-- Card 4: Bike Transport -->
+          <div class="collection-pick-card" tabindex="0">
+            <div class="collection-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5L9 9l4.5-3L17 9"></path>
+              </svg>
+            </div>
+            <h3>Bike Transport</h3>
+            <p>Crated 2-wheeler shipment with protective foam packaging.</p>
+            <button type="button" class="btn-select-service">Select Service</button>
+          </div>
+
+          <!-- Card 5: Furniture Moving -->
+          <div class="collection-pick-card" tabindex="0">
+            <div class="collection-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+            </div>
+            <h3>Furniture Moving</h3>
+            <p>Bed & wardrobe carpentry disassembly and reassembly.</p>
+            <button type="button" class="btn-select-service">Select Service</button>
+          </div>
+
+          <!-- Card 6: Appliance Moving -->
+          <div class="collection-pick-card" tabindex="0">
+            <div class="collection-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                <line x1="4" y1="10" x2="20" y2="10"></line>
+                <line x1="8" y1="6" x2="8.01" y2="6"></line>
+                <line x1="8" y1="14" x2="8.01" y2="14"></line>
+              </svg>
+            </div>
+            <h3>Appliance Moving</h3>
+            <p>Anti-shock foam wrapping for refrigerators, ACs & TVs.</p>
+            <button type="button" class="btn-select-service">Select Service</button>
+          </div>
+
+          <!-- Card 7: Packing Service -->
+          <div class="collection-pick-card selected" tabindex="0">
+            <div class="collection-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                <rect x="1" y="3" width="22" height="5"></rect>
+                <line x1="10" y1="12" x2="14" y2="12"></line>
+              </svg>
+            </div>
+            <h3>Packing Service</h3>
+            <p>Virgin bubble film, 5-ply cartons & labeled crating.</p>
+            <button type="button" class="btn-select-service">Selected</button>
+          </div>
+
+          <!-- Card 8: Storage Solutions -->
+          <div class="collection-pick-card" tabindex="0">
+            <div class="collection-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              </svg>
+            </div>
+            <h3>Storage Solutions</h3>
+            <p>Climate-controlled, 24/7 CCTV warehouse units.</p>
+            <button type="button" class="btn-select-service">Select Service</button>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             3. [CORE] STAGE 2: SELECTED SERVICES PANEL ("YOUR MOVE" CART)
+             ================================================================== -->
+        <div class="your-move-cart-panel reveal reveal-scale" id="yourMoveCartPanel">
+          <div class="cart-left-info">
+            <div class="cart-title-row">
+              <span class="badge badge-orange">Stage 2</span>
+              <h3>YOUR MOVE</h3>
+              <span id="cartSelectedCount" class="text-xs" style="color: #CBD5E1; font-weight: 600;">2 services selected</span>
+            </div>
+            <div class="cart-chips-row" id="cartChipsContainer">
+              <!-- Dynamically injected service chips with remove button -->
+            </div>
+          </div>
+
+          <div class="cart-actions-right">
+            <button type="button" class="btn btn-outline-white btn-sm" id="cartClearBtn">Clear Selection</button>
+            <button type="button" class="btn btn-primary" id="cartContinueBtn">
+              <span>Continue To Move Details</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             4. [CORE] STAGE 2B: MOVE DETAILS & INDICATIVE ESTIMATE
+             ================================================================== -->
+        <div class="orders-flow-section card" id="moveDetailsSection" style="padding: var(--space-6);">
+          <div style="margin-bottom: var(--space-5); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border);">
+            <span class="badge badge-blue" style="margin-bottom: var(--space-2);">Stage 3</span>
+            <h3 style="font-size: 1.35rem; color: var(--color-navy);">Move Specifications & Itinerary</h3>
+            <p class="text-xs" style="color: var(--color-text-secondary);">Enter route details to view your dynamic indicative price range.</p>
+          </div>
+
+          <div class="estimator-inputs-grid">
+            <div class="form-group">
+              <label for="orderPickup" class="form-label">Pickup Location *</label>
+              <input type="text" id="orderPickup" class="form-control" placeholder="e.g. Chennai, T Nagar" required>
+              <span class="error-message">Pickup address is required</span>
+            </div>
+
+            <div class="form-group">
+              <label for="orderDest" class="form-label">Destination Location *</label>
+              <input type="text" id="orderDest" class="form-control" placeholder="e.g. Bangalore, Indiranagar" required>
+              <span class="error-message">Destination is required</span>
+            </div>
+
+            <div class="form-group">
+              <label for="orderDate" class="form-label">Moving Date *</label>
+              <input type="date" id="orderDate" class="form-control" required>
+              <span class="error-message">Select moving date</span>
+            </div>
+
+            <div class="form-group">
+              <label for="orderPropertyType" class="form-label">Property Type</label>
+              <select id="orderPropertyType" class="form-control">
+                <option value="1bhk">1 BHK Apartment</option>
+                <option value="2bhk" selected>2 BHK Apartment</option>
+                <option value="3bhk">3 BHK Apartment</option>
+                <option value="4bhk">4 BHK / Duplex</option>
+                <option value="villa">Independent Villa</option>
+                <option value="office">Corporate Commercial Office</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="estimator-inputs-grid" style="margin-top: var(--space-4);">
+            <div class="form-group">
+              <label for="orderApproxItems" class="form-label">Approximate Items / Volume</label>
+              <input type="text" id="orderApproxItems" class="form-control" placeholder="e.g. 20 boxes, 2 beds, sofa, washing machine">
+            </div>
+
+            <div class="form-group">
+              <label for="orderSpecialReq" class="form-label">Special Requirements</label>
+              <input type="text" id="orderSpecialReq" class="form-control" placeholder="e.g. Piano, high floor without lift, urgent delivery">
+            </div>
+          </div>
+
+          <!-- Indicative Price Range Box -->
+          <div class="indicative-range-card">
+            <span class="text-xs" style="text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: var(--color-blue);">Estimated Service Range:</span>
+            <div class="indicative-amount-text" id="indicativeRangeText">₹12,500 – ₹17,500</div>
+            <div class="map-disclaimer-note" style="max-width: 600px; margin: 0 auto; text-align: left;">
+              <strong>Notice:</strong> Indicative estimate. Final pricing may vary based on distance, volume, access and inspection.
+            </div>
+          </div>
+
+          <div style="text-align: right;">
+            <button type="button" class="btn btn-primary btn-lg" id="proceedToBookingBtn">
+              <span>Proceed To Personal Details</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ==================================================================
+             5. [CORE] STAGE 3: BOOKING FORM + CLIENT-SIDE SUBMISSION
+             ================================================================== -->
+        <div class="orders-flow-section card" id="bookingFormSection" style="padding: var(--space-6); margin-top: var(--space-6);">
+          <div style="margin-bottom: var(--space-5); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border);">
+            <span class="badge badge-orange" style="margin-bottom: var(--space-2);">Stage 4</span>
+            <h3 style="font-size: 1.35rem; color: var(--color-navy);">Final Contact & Quote Request</h3>
+            <p class="text-xs" style="color: var(--color-text-secondary);">Confirm contact details to receive your formal move itinerary and quote.</p>
+          </div>
+
+          <!-- Summary Bar -->
+          <div style="background-color: var(--color-bg); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-border); margin-bottom: var(--space-5);">
+            <div class="review-item-row"><span class="review-item-label">Services Selected:</span><span class="review-item-val" id="summarySelectedServices">-</span></div>
+            <div class="review-item-row"><span class="review-item-label">Route & Schedule:</span><span class="review-item-val" id="summaryRouteSchedule">-</span></div>
+            <div class="review-item-row"><span class="review-item-label">Indicative Range:</span><span class="review-item-val text-blue" id="summaryIndicativePrice">-</span></div>
+          </div>
+
+          <form id="finalBookingForm" novalidate>
+            <div class="estimator-inputs-grid">
+              <div class="form-group">
+                <label for="bookCustName" class="form-label">Full Name *</label>
+                <input type="text" id="bookCustName" class="form-control" placeholder="e.g. Ramesh Krishnan" required>
+                <span class="error-message">Please enter your full name</span>
+              </div>
+
+              <div class="form-group">
+                <label for="bookCustPhone" class="form-label">Contact Phone Number (10 Digits) *</label>
+                <input type="tel" id="bookCustPhone" class="form-control" placeholder="e.g. 9840123456" maxlength="10" required>
+                <span class="error-message">Enter valid 10-digit mobile number</span>
+              </div>
+
+              <div class="form-group">
+                <label for="bookCustEmail" class="form-label">Email Address *</label>
+                <input type="email" id="bookCustEmail" class="form-control" placeholder="e.g. ramesh@gmail.com" required>
+                <span class="error-message">Valid email address required</span>
+              </div>
+
+              <div class="form-group">
+                <label for="bookAdditionalReq" class="form-label">Additional Instructions (Optional)</label>
+                <input type="text" id="bookAdditionalReq" class="form-control" placeholder="e.g. Need boxes 2 days in advance">
+              </div>
+            </div>
+
+            <div style="margin-top: var(--space-6); text-align: center;">
+              <button type="submit" class="btn btn-primary btn-lg" style="min-width: 280px;">
+                <span>Request My Quote</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ==================================================================
+             6. [OPTIONAL] SERVICE COVERAGE NOTE (Local / Intercity / Pan-India)
+             ================================================================== -->
+        <div style="margin-top: var(--space-7); padding: var(--space-4) var(--space-5); background-color: var(--color-surface); border-radius: var(--radius-md); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3);" class="reveal reveal-up">
+          <div style="display: flex; align-items: center; gap: var(--space-2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-blue);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span class="text-sm font-semibold" style="color: var(--color-navy);">Serving Moves Across India:</span>
+          </div>
+          <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+            <span class="badge badge-blue">Local Moves</span>
+            <span class="badge badge-blue">Intercity Corridors</span>
+            <span class="badge badge-blue">Interstate Container Transit</span>
+            <span class="badge badge-orange">Pan-India Network</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       ANIMATED SUCCESS MODAL (Simulation)
+       ======================================================================== -->
+  <div class="modal-overlay" id="ordersSuccessModal" role="dialog" aria-modal="true" aria-labelledby="orderModalHeading">
+    <div class="modal-box">
+      <div class="modal-icon-success anim-pop-check" aria-hidden="true">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h3 id="orderModalHeading">Your move request has been recorded.</h3>
+      <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-3);">
+        Thank you for submitting your relocation plan. A dedicated MoveEase coordinator will review your route, cargo specifications, and schedule within 1 hour.
+      </p>
+      <div>
+        <span class="text-xs" style="color: var(--color-text-muted); text-transform: uppercase;">Booking Reference Number:</span>
+        <div class="modal-ref-tag">ME-2026-9148</div>
+      </div>
+      <p class="text-xs" style="color: #64748B; background: #F8FAFC; padding: var(--space-3); border-radius: var(--radius-sm); margin-bottom: var(--space-5);">
+        <em>Note: This is a frontend portfolio simulation. No personal data was transferred to an external database.</em>
+      </p>
+      <button type="button" class="btn btn-primary" id="ordersModalCloseBtn" style="width: 100%;">Return To Home</button>
+    </div>
+  </div>
+
+  <!-- Global Footer (Identical to Home) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #FFFFFF;">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="44" height="44" rx="10" fill="#1769AA" />
+              <path d="M10 28L18 16L26 28H10Z" fill="#FFFFFF" />
+              <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+              <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+            </svg>
+            <span>Move<span class="accent">Ease</span></span>
+          </div>
+          <p>Over a decade of verified, reliable household and corporate relocation across South India.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Cost Estimator</a></li>
+            <li><a href="about.html">About Company</a></li>
+            <li><a href="services.html">Services Catalogue</a></li>
+            <li><a href="orders.html">Book Your Move</a></li>
+            <li><a href="blogs.html">Relocation Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#residential">Residential Relocation</a></li>
+            <li><a href="services.html#office">Office Shifting</a></li>
+            <li><a href="services.html#packing">Premium Packing</a></li>
+            <li><a href="services.html#furniture">Furniture Assembly</a></li>
+            <li><a href="services.html#storage">Warehouse Storage</a></li>
+            <li><a href="services.html#vehicle">Car & Bike Transit</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact & Support</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+91 44 2847 9100 / 1800-420-6683</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>support@moveease.in</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>MoveEase Tower, Mount Road, Chennai, TN 600002</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 MoveEase Logistics India Private Limited. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+          <a href="contact.html">Transit Insurance Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/orders.js"></script>
+</body>
+</html>

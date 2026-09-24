@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — MoveEase Relocations</title>
+  <meta name="description" content="Log in to your MoveEase account to manage bookings, track shipments, and access your relocation dashboard.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Global Navbar -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="MoveEase Home">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+          <rect x="12" y="30" width="20" height="2.5" rx="1" fill="#FFFFFF" opacity="0.8" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="blogs.html" class="nav-link">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link active">Login</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="basket-btn" aria-label="View cart" title="Shopping Cart" id="cartToggleBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="basket-badge" style="display: none;">0</span>
+        </button>
+        <a href="orders.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-dropdown-header">
+        <h4>Your Cart</h4>
+        <button type="button" class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="cart-dropdown-body" id="cartDropdownBody">
+        <div class="cart-empty-msg" id="cartEmptyMsg">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-dropdown-footer" id="cartDropdownFooter" style="display:none;">
+        <a href="orders.html" class="btn btn-primary" style="width:100%;">Proceed to Checkout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <svg width="34" height="34" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </div>
+      <button type="button" class="mobile-close-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="home2.html" class="mobile-nav-link">Home 2 (Estimator)</a>
+      <a href="about.html" class="mobile-nav-link">About MoveEase</a>
+      <a href="services.html" class="mobile-nav-link">Our Services</a>
+      <a href="orders.html" class="mobile-nav-link">Book a Move</a>
+      <a href="blogs.html" class="mobile-nav-link">Relocation Blogs</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+      <a href="login.html" class="mobile-nav-link active">Login</a>
+    </nav>
+    <div style="margin-top: auto; padding-top: var(--space-5);">
+      <a href="orders.html" class="btn btn-primary" style="width: 100%;">Get a Free Quote</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Login Section -->
+    <section class="login-section" aria-labelledby="login-heading">
+      <!-- Background Decorative Elements -->
+      <div class="login-bg-decor" aria-hidden="true">
+        <div class="login-bg-circle login-bg-circle-1"></div>
+        <div class="login-bg-circle login-bg-circle-2"></div>
+        <div class="login-bg-circle login-bg-circle-3"></div>
+      </div>
+
+      <div class="container">
+        <div class="login-wrapper reveal reveal-up">
+          <!-- Left: Branding Panel -->
+          <div class="login-brand-panel">
+            <div class="login-brand-content">
+              <div class="login-brand-logo">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="56" height="56">
+                  <rect width="44" height="44" rx="10" fill="#FFFFFF" fill-opacity="0.15" />
+                  <path d="M10 28L18 16L26 28H10Z" fill="#FFFFFF" fill-opacity="0.4" />
+                  <path d="M22 28L28 19L34 28H22Z" fill="#FFFFFF" fill-opacity="0.6" />
+                  <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+                </svg>
+              </div>
+              <h2>Welcome Back</h2>
+              <p>Manage your relocations, track shipments, and access your personalized dashboard.</p>
+
+              <div class="login-brand-features">
+                <div class="login-feature">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                  <span>Real-time shipment tracking</span>
+                </div>
+                <div class="login-feature">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  <span>Manage bookings online</span>
+                </div>
+                <div class="login-feature">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <span>Secure & encrypted access</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Login Form -->
+          <div class="login-form-panel">
+            <div class="login-form-header">
+              <h1 id="login-heading">Sign In</h1>
+              <p>Enter your credentials to access your account</p>
+            </div>
+
+            <form id="loginForm" class="login-form" novalidate>
+              <!-- Role Selector Tabs -->
+              <div class="login-role-tabs">
+                <button type="button" class="login-role-tab active" data-role="user" id="roleUserTab">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  <span>User</span>
+                </button>
+                <button type="button" class="login-role-tab" data-role="admin" id="roleAdminTab">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <span>Admin</span>
+                </button>
+              </div>
+
+              <div class="form-group">
+                <label for="loginEmail" class="form-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  Email Address
+                </label>
+                <input type="email" id="loginEmail" name="email" class="form-control" placeholder="you@example.com" required autocomplete="email">
+                <span class="error-message">Please enter a valid email address.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="loginPassword" class="form-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  Password
+                </label>
+                <div class="password-input-wrap">
+                  <input type="password" id="loginPassword" name="password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+                  <button type="button" class="password-toggle-btn" id="passwordToggleBtn" aria-label="Toggle password visibility">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-open"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-closed" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                  </button>
+                </div>
+                <span class="error-message">Please enter your password.</span>
+              </div>
+
+              <div class="login-options">
+                <label class="checkbox-wrap">
+                  <input type="checkbox" id="rememberMe" name="remember">
+                  <span class="checkbox-custom"></span>
+                  <span>Remember me</span>
+                </label>
+                <a href="#" class="login-forgot-link">Forgot password?</a>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg login-submit-btn" id="loginSubmitBtn">
+                <span>Sign In</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+
+              <!-- Login Success Message (hidden by default) -->
+              <div class="login-success-msg" id="loginSuccessMsg" style="display: none;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <h3>Welcome!</h3>
+                <p id="loginSuccessText">You have successfully signed in.</p>
+              </div>
+            </form>
+
+            <div class="login-form-footer">
+              <p>Don't have an account? <a href="contact.html" class="login-signup-link">Contact Us</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #FFFFFF;">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="44" height="44" rx="10" fill="#1769AA" />
+              <path d="M10 28L18 16L26 28H10Z" fill="#FFFFFF" />
+              <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+              <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+            </svg>
+            <span>Move<span class="accent">Ease</span></span>
+          </div>
+          <p>Full suite of verified relocation services backed by corporate standards and 24/7 telematics.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Cost Estimator</a></li>
+            <li><a href="about.html">About Company</a></li>
+            <li><a href="services.html">Services Catalogue</a></li>
+            <li><a href="orders.html">Book Your Move</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#appliances">Home Appliances</a></li>
+            <li><a href="services.html#electronics">Electronics</a></li>
+            <li><a href="services.html#furniture">Furniture Moving</a></li>
+            <li><a href="services.html#packing">Premium Packing</a></li>
+            <li><a href="services.html#storage">Warehouse Storage</a></li>
+            <li><a href="services.html#vehicle">Car & Bike Transit</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact & Support</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+91 44 2847 9100 / 1800-420-6683</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>support@moveease.in</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>MoveEase Tower, Mount Road, Chennai, TN 600002</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 MoveEase Logistics India Private Limited. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+          <a href="contact.html">Transit Insurance Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    // Login Page Logic
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('loginForm');
+      const emailInput = document.getElementById('loginEmail');
+      const passwordInput = document.getElementById('loginPassword');
+      const passwordToggle = document.getElementById('passwordToggleBtn');
+      const roleTabs = document.querySelectorAll('.login-role-tab');
+      const successMsg = document.getElementById('loginSuccessMsg');
+      const successText = document.getElementById('loginSuccessText');
+      const submitBtn = document.getElementById('loginSubmitBtn');
+
+      let selectedRole = 'user';
+
+      // Role tab switching
+      roleTabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          roleTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          selectedRole = this.getAttribute('data-role');
+        });
+      });
+
+      // Password visibility toggle
+      if (passwordToggle) {
+        passwordToggle.addEventListener('click', function () {
+          const type = passwordInput.getAttribute('type');
+          const eyeOpen = this.querySelector('.eye-open');
+          const eyeClosed = this.querySelector('.eye-closed');
+          if (type === 'password') {
+            passwordInput.setAttribute('type', 'text');
+            eyeOpen.style.display = 'none';
+            eyeClosed.style.display = 'block';
+          } else {
+            passwordInput.setAttribute('type', 'password');
+            eyeOpen.style.display = 'block';
+            eyeClosed.style.display = 'none';
+          }
+        });
+      }
+
+      // Form validation & submission
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          let valid = true;
+
+          // Validate email
+          const emailVal = emailInput.value.trim();
+          if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+            emailInput.closest('.form-group').classList.add('has-error');
+            valid = false;
+          } else {
+            emailInput.closest('.form-group').classList.remove('has-error');
+          }
+
+          // Validate password
+          const passVal = passwordInput.value.trim();
+          if (!passVal || passVal.length < 1) {
+            passwordInput.closest('.form-group').classList.add('has-error');
+            valid = false;
+          } else {
+            passwordInput.closest('.form-group').classList.remove('has-error');
+          }
+
+          if (!valid) return;
+
+          // Simulate login with spinner
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `
+            <span class="btn-spinner"></span>
+            <span>Signing In...</span>
+          `;
+
+          setTimeout(function () {
+            form.style.display = 'none';
+            successMsg.style.display = 'flex';
+
+            if (selectedRole === 'admin') {
+              successText.textContent = 'Welcome, Admin! You have full administrative access.';
+            } else {
+              successText.textContent = 'You have successfully signed in to your MoveEase account.';
+            }
+
+            if (window.MoveEase && window.MoveEase.showToast) {
+              window.MoveEase.showToast(
+                selectedRole === 'admin' ? 'Admin login successful!' : 'Login successful!',
+                'success'
+              );
+            }
+          }, 1500);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

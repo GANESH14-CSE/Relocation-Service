@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Appliance & Item Moving Catalogue | MoveEase</title>
+  <meta name="description" content="Browse MoveEase's comprehensive moving service catalogue. Get pricing for air conditioners, washing machines, refrigerators, TVs, and all home appliances transport.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Global Navbar -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="MoveEase Home">
+        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+          <rect x="12" y="30" width="20" height="2.5" rx="1" fill="#FFFFFF" opacity="0.8" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="home2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+        <a href="blogs.html" class="nav-link">Blogs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link">Login</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="basket-btn" aria-label="View cart" title="Shopping Cart" id="cartToggleBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="basket-badge" style="display: none;">0</span>
+        </button>
+        <a href="orders.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cart Dropdown -->
+    <div class="cart-dropdown" id="cartDropdown">
+      <div class="cart-dropdown-header">
+        <h4>Your Cart</h4>
+        <button type="button" class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="cart-dropdown-body" id="cartDropdownBody">
+        <div class="cart-empty-msg" id="cartEmptyMsg">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-dropdown-footer" id="cartDropdownFooter" style="display:none;">
+        <a href="orders.html" class="btn btn-primary" style="width:100%;">Proceed to Checkout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <svg width="34" height="34" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="10" fill="#0B1F33" />
+          <path d="M10 28L18 16L26 28H10Z" fill="#1769AA" />
+          <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+          <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+        </svg>
+        <span>Move<span class="accent">Ease</span></span>
+      </div>
+      <button type="button" class="mobile-close-btn" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="home2.html" class="mobile-nav-link">Home 2 (Estimator)</a>
+      <a href="about.html" class="mobile-nav-link">About MoveEase</a>
+      <a href="services.html" class="mobile-nav-link active">Our Services</a>
+      <a href="orders.html" class="mobile-nav-link">Book a Move</a>
+      <a href="blogs.html" class="mobile-nav-link">Relocation Blogs</a>
+      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+      <a href="login.html" class="mobile-nav-link">Login</a>
+    </nav>
+    <div style="margin-top: auto; padding-top: var(--space-5);">
+      <a href="orders.html" class="btn btn-primary" style="width: 100%;">Get a Free Quote</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Header Banner with different design from Home -->
+    <section class="services-hero-banner" aria-labelledby="services-hero-title">
+      <div class="services-hero-bg" aria-hidden="true">
+        <div class="services-hero-shape services-hero-shape-1"></div>
+        <div class="services-hero-shape services-hero-shape-2"></div>
+        <div class="services-hero-shape services-hero-shape-3"></div>
+      </div>
+      <div class="container">
+        <div class="services-hero-content reveal reveal-up">
+          <span class="section-tag tag-white">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            Item-wise Moving Catalogue
+          </span>
+          <h1 id="services-hero-title">Move Any Appliance,<br>Anywhere Safely</h1>
+          <p>Browse our catalogue of home appliances, electronics, and furniture. Select items you need to move, add them to your cart, and get an instant estimate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Filter Tabs -->
+    <section class="services-filter-section">
+      <div class="container">
+        <div class="services-filter-bar reveal reveal-up">
+          <button type="button" class="filter-tab active" data-category="all">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            All Items
+          </button>
+          <button type="button" class="filter-tab" data-category="appliances">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="12" y1="18" x2="12" y2="18.01"></line></svg>
+            Appliances
+          </button>
+          <button type="button" class="filter-tab" data-category="electronics">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            Electronics
+          </button>
+          <button type="button" class="filter-tab" data-category="furniture">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"></path><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0z"></path><path d="M4 18v2"></path><path d="M20 18v2"></path></svg>
+            Furniture
+          </button>
+          <button type="button" class="filter-tab" data-category="vehicles">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"></path><circle cx="6.5" cy="16.5" r="2.5"></circle><circle cx="16.5" cy="16.5" r="2.5"></circle></svg>
+            Vehicles
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         APPLIANCE / ITEM PRODUCT GRID
+         ===================================================================== -->
+    <section class="services-catalogue-section" id="servicesCatalogue" aria-labelledby="catalogue-heading">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <h2 id="catalogue-heading">Select Items to Move</h2>
+          <p class="text-lead">Click "Add to Cart" on items you need relocated. View your selection in the cart at the top.</p>
+        </div>
+
+        <div class="catalogue-grid" id="catalogueGrid">
+
+          <!-- APPLIANCES CATEGORY -->
+          <!-- Item: Air Conditioner (Split) -->
+          <article class="catalogue-card reveal reveal-up" data-category="appliances">
+            <div class="catalogue-card-visual">
+              <div class="catalogue-card-badge">Popular</div>
+              <img src="https://images.unsplash.com/photo-1631545806609-45e8060ac10d?auto=format&fit=crop&w=500&q=80" alt="Split air conditioner unit" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Appliances</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Split Air Conditioner</h3>
+              <p class="catalogue-card-desc">Complete AC dismounting, gas top-up, copper pipe handling & reinstallation at new location.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹2,500</span>
+                <span class="catalogue-card-unit">per unit</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="ac-split"
+                data-name="Split Air Conditioner"
+                data-price="₹2,500"
+                data-image="https://images.unsplash.com/photo-1631545806609-45e8060ac10d?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Washing Machine -->
+          <article class="catalogue-card reveal reveal-up delay-1" data-category="appliances">
+            <div class="catalogue-card-visual">
+              <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=500&q=80" alt="Front-load washing machine" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Appliances</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Washing Machine</h3>
+              <p class="catalogue-card-desc">Drum locking, hose disconnection, vibration-proof packing, and safe transit on hydraulic bed trucks.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹1,800</span>
+                <span class="catalogue-card-unit">per unit</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="washing-machine"
+                data-name="Washing Machine"
+                data-price="₹1,800"
+                data-image="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Refrigerator -->
+          <article class="catalogue-card reveal reveal-up delay-2" data-category="appliances">
+            <div class="catalogue-card-visual">
+              <div class="catalogue-card-badge">Essential</div>
+              <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=500&q=80" alt="Double-door refrigerator" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Appliances</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Refrigerator / Fridge</h3>
+              <p class="catalogue-card-desc">Upright transport only. Defrost coordination, shelving removal, compressor protection & foam crating.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹2,000</span>
+                <span class="catalogue-card-unit">per unit</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="refrigerator"
+                data-name="Refrigerator / Fridge"
+                data-price="₹2,000"
+                data-image="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Microwave Oven -->
+          <article class="catalogue-card reveal reveal-up delay-3" data-category="appliances">
+            <div class="catalogue-card-visual">
+              <img src="https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=500&q=80" alt="Microwave oven" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Appliances</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Microwave Oven</h3>
+              <p class="catalogue-card-desc">Bubble-wrapped with corrugated carton box. Turntable glass secured separately.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹500</span>
+                <span class="catalogue-card-unit">per unit</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="microwave"
+                data-name="Microwave Oven"
+                data-price="₹500"
+                data-image="https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- ELECTRONICS CATEGORY -->
+          <!-- Item: LED TV -->
+          <article class="catalogue-card reveal reveal-up" data-category="electronics">
+            <div class="catalogue-card-visual">
+              <div class="catalogue-card-badge">Fragile</div>
+              <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=80" alt="Large screen LED TV" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Electronics</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">LED / Smart TV</h3>
+              <p class="catalogue-card-desc">Custom wooden crate for panel protection. Wall unmounting, bubble wrap, and anti-shock packaging.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹1,500</span>
+                <span class="catalogue-card-unit">up to 55"</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="led-tv"
+                data-name="LED / Smart TV"
+                data-price="₹1,500"
+                data-image="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Desktop Computer -->
+          <article class="catalogue-card reveal reveal-up delay-1" data-category="electronics">
+            <div class="catalogue-card-visual">
+              <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=500&q=80" alt="Desktop computer setup" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Electronics</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Desktop Computer</h3>
+              <p class="catalogue-card-desc">CPU tower, monitor, keyboard, and peripherals individually packed with anti-static wrapping.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹1,200</span>
+                <span class="catalogue-card-unit">per set</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="desktop-pc"
+                data-name="Desktop Computer"
+                data-price="₹1,200"
+                data-image="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Home Theatre -->
+          <article class="catalogue-card reveal reveal-up delay-2" data-category="electronics">
+            <div class="catalogue-card-visual">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=500&q=80" alt="Home theatre system speakers" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Electronics</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Home Theatre System</h3>
+              <p class="catalogue-card-desc">Subwoofer, satellite speakers, and AV receiver each packed with foam inserts in individual cartons.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹1,000</span>
+                <span class="catalogue-card-unit">per set</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="home-theatre"
+                data-name="Home Theatre System"
+                data-price="₹1,000"
+                data-image="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- FURNITURE CATEGORY -->
+          <!-- Item: Modular Bed -->
+          <article class="catalogue-card reveal reveal-up" data-category="furniture">
+            <div class="catalogue-card-visual">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=500&q=80" alt="King size modular bed" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Furniture</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">King / Queen Bed</h3>
+              <p class="catalogue-card-desc">Full disassembly of hydraulic/modular bed, mattress vacuum packing, and on-site reassembly.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹3,000</span>
+                <span class="catalogue-card-unit">per bed</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="bed-king"
+                data-name="King / Queen Bed"
+                data-price="₹3,000"
+                data-image="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Wardrobe -->
+          <article class="catalogue-card reveal reveal-up delay-1" data-category="furniture">
+            <div class="catalogue-card-visual">
+              <div class="catalogue-card-badge">Heavy</div>
+              <img src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=500&q=80" alt="3-door wardrobe" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Furniture</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Wardrobe / Almirah</h3>
+              <p class="catalogue-card-desc">Mirror detaching, shelf removal, door hinge work, and padded quilted cover during transit.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹3,500</span>
+                <span class="catalogue-card-unit">per unit</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="wardrobe"
+                data-name="Wardrobe / Almirah"
+                data-price="₹3,500"
+                data-image="https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Sofa Set -->
+          <article class="catalogue-card reveal reveal-up delay-2" data-category="furniture">
+            <div class="catalogue-card-visual">
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=500&q=80" alt="3-seater sofa set" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Furniture</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Sofa Set (3+1+1)</h3>
+              <p class="catalogue-card-desc">Stretch wrap covering, leg detachment if modular, and protective quilted blanket during loading.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹2,800</span>
+                <span class="catalogue-card-unit">per set</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="sofa-set"
+                data-name="Sofa Set (3+1+1)"
+                data-price="₹2,800"
+                data-image="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Dining Table -->
+          <article class="catalogue-card reveal reveal-up delay-3" data-category="furniture">
+            <div class="catalogue-card-visual">
+              <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=500&q=80" alt="6-seater dining table" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Furniture</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Dining Table + Chairs</h3>
+              <p class="catalogue-card-desc">Glass top felt cushioning, leg disassembly, and each chair individually wrapped and padded.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹2,200</span>
+                <span class="catalogue-card-unit">6-seater</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="dining-table"
+                data-name="Dining Table + Chairs"
+                data-price="₹2,200"
+                data-image="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- VEHICLES CATEGORY -->
+          <!-- Item: Car Transport -->
+          <article class="catalogue-card reveal reveal-up" data-category="vehicles">
+            <div class="catalogue-card-visual">
+              <div class="catalogue-card-badge">Insured</div>
+              <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=500&q=80" alt="Car transport carrier" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Vehicles</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Car Transport</h3>
+              <p class="catalogue-card-desc">Enclosed hydraulic car carrier with wheel chock clamps, pre-transit photos, and insurance cover.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹8,500</span>
+                <span class="catalogue-card-unit">per car</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="car-transport"
+                data-name="Car Transport"
+                data-price="₹8,500"
+                data-image="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item: Two-Wheeler -->
+          <article class="catalogue-card reveal reveal-up delay-1" data-category="vehicles">
+            <div class="catalogue-card-visual">
+              <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=500&q=80" alt="Motorcycle for transport" class="catalogue-card-img" loading="lazy">
+              <div class="catalogue-card-overlay">
+                <span class="catalogue-category-label">Vehicles</span>
+              </div>
+            </div>
+            <div class="catalogue-card-body">
+              <h3 class="catalogue-card-title">Bike / Two-Wheeler</h3>
+              <p class="catalogue-card-desc">Crated 2-wheeler shipment with protective foam, handlebar lock, and mirror removal packaging.</p>
+              <div class="catalogue-card-meta">
+                <span class="catalogue-card-price">₹4,500</span>
+                <span class="catalogue-card-unit">per bike</span>
+              </div>
+              <button type="button" class="btn btn-primary add-to-cart-btn"
+                data-id="bike-transport"
+                data-name="Bike / Two-Wheeler"
+                data-price="₹4,500"
+                data-image="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=200&q=60">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Strip -->
+    <section class="services-trust-strip">
+      <div class="container">
+        <div class="trust-strip-grid reveal reveal-up">
+          <div class="trust-strip-item">
+            <div class="trust-strip-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h4>Full Transit Insurance</h4>
+            <p>Every item covered against damage, loss, or delay during transport.</p>
+          </div>
+          <div class="trust-strip-item">
+            <div class="trust-strip-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h4>On-Time Delivery</h4>
+            <p>GPS-tracked fleet with guaranteed delivery windows and real-time updates.</p>
+          </div>
+          <div class="trust-strip-item">
+            <div class="trust-strip-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h4>Verified Professionals</h4>
+            <p>Background-verified, trained crew with 5+ years of specialized experience.</p>
+          </div>
+          <div class="trust-strip-item">
+            <div class="trust-strip-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h4>Transparent Pricing</h4>
+            <p>No hidden charges. What you see in cart is what you pay — guaranteed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="final-cta-section" aria-labelledby="services-cta-heading">
+      <div class="container">
+        <div class="final-cta-inner">
+          <div class="final-cta-text reveal reveal-left">
+            <h2 id="services-cta-heading">Can't Find Your Item?</h2>
+            <p>Our logistics team can handle any item — from grand pianos to industrial machinery. Request a custom quote.</p>
+          </div>
+          <div class="final-cta-buttons reveal reveal-right delay-1">
+            <a href="orders.html" class="btn btn-primary btn-lg">Request Custom Quote</a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg">Contact Coordinator</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #FFFFFF;">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="44" height="44" rx="10" fill="#1769AA" />
+              <path d="M10 28L18 16L26 28H10Z" fill="#FFFFFF" />
+              <path d="M22 28L28 19L34 28H22Z" fill="#36A9E1" />
+              <circle cx="29" cy="14" r="3.5" fill="#F59E0B" />
+            </svg>
+            <span>Move<span class="accent">Ease</span></span>
+          </div>
+          <p>Full suite of verified relocation services backed by corporate standards and 24/7 telematics.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home2.html">Cost Estimator</a></li>
+            <li><a href="about.html">About Company</a></li>
+            <li><a href="services.html">Services Catalogue</a></li>
+            <li><a href="orders.html">Book Your Move</a></li>
+            <li><a href="blogs.html">Relocation Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Item Categories</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Home Appliances</a></li>
+            <li><a href="services.html">Electronics & TVs</a></li>
+            <li><a href="services.html">Furniture & Beds</a></li>
+            <li><a href="services.html">Car & Bike Transit</a></li>
+            <li><a href="services.html">Office Equipment</a></li>
+            <li><a href="services.html">Custom Items</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact & Support</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+91 44 2847 9100 / 1800-420-6683</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>support@moveease.in</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>MoveEase Tower, Mount Road, Chennai, TN 600002</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 MoveEase Logistics India Private Limited. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Terms of Service</a>
+          <a href="contact.html">Transit Insurance Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    // Category Filter Logic
+    document.addEventListener('DOMContentLoaded', function () {
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const cards = document.querySelectorAll('.catalogue-card');
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+          const category = this.getAttribute('data-category');
+
+          // Update active tab
+          filterTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+
+          // Filter cards with animation
+          cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (category === 'all' || cardCategory === category) {
+              card.style.display = '';
+              card.style.animation = 'fadeInUp 400ms ease forwards';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
