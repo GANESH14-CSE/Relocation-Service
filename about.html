@@ -5,6 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us — MoveEase Relocations</title>
   <meta name="description" content="Moving People. Delivering Trust. Learn about MoveEase's story, founders, core values, safety standards, and service promise across India.">
+  <script>
+    // Immediate Theme & RTL Direction Initialization to prevent FOUC
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('moveease_theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.classList.add('dark-mode');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.documentElement.classList.remove('dark-mode');
+        }
+
+        const savedDir = localStorage.getItem('moveease_direction');
+        if (savedDir === 'rtl') {
+          document.documentElement.setAttribute('dir', 'rtl');
+          document.documentElement.classList.add('rtl-mode');
+        } else {
+          document.documentElement.setAttribute('dir', 'ltr');
+          document.documentElement.classList.remove('rtl-mode');
+        }
+      } catch (e) {
+        console.warn('Theme init error:', e);
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -33,19 +60,40 @@
         <a href="orders.html" class="nav-link">Orders</a>
         <a href="blogs.html" class="nav-link">Blogs</a>
         <a href="contact.html" class="nav-link">Contact</a>
-        <a href="login.html" class="nav-link">Login</a>
       </nav>
 
+      <!-- Header Actions (Theme, RTL, User Login & Mobile Toggle) -->
       <div class="header-actions">
-        <button type="button" class="basket-btn" aria-label="View cart" title="Shopping Cart" id="cartToggleBtn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="9" cy="21" r="1"></circle>
-            <circle cx="20" cy="21" r="1"></circle>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-          </svg>
-          <span class="basket-badge" style="display: none;">0</span>
-        </button>
-        <a href="orders.html" class="btn btn-primary btn-sm">Get a Free Quote</a>
+        <div class="header-circle-group" aria-label="Appearance and Account Controls">
+          <button type="button" class="header-circle-btn theme-toggle-btn" aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <svg class="sun-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.75" stroke="currentColor" stroke-width="1.8" />
+              <circle cx="12" cy="3.5" r="1.1" fill="currentColor" />
+              <circle cx="12" cy="20.5" r="1.1" fill="currentColor" />
+              <circle cx="3.5" cy="12" r="1.1" fill="currentColor" />
+              <circle cx="20.5" cy="12" r="1.1" fill="currentColor" />
+              <circle cx="6" cy="6" r="1.1" fill="currentColor" />
+              <circle cx="18" cy="6" r="1.1" fill="currentColor" />
+              <circle cx="6" cy="18" r="1.1" fill="currentColor" />
+              <circle cx="18" cy="18" r="1.1" fill="currentColor" />
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: none;">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <button type="button" class="header-circle-btn rtl-toggle-btn" aria-label="Toggle RTL Mode" title="Toggle Right-to-Left Layout">
+            <span>RTL</span>
+          </button>
+
+          <a href="login.html" class="header-circle-btn user-btn" aria-label="User Login" title="User Login">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.8" />
+              <path d="M5.5 19.5c0-3.3 2.9-6 6.5-6s6.5 2.7 6.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </a>
+        </div>
+
         <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
           <span></span>
           <span></span>
@@ -94,15 +142,15 @@
         </svg>
       </button>
     </div>
+
     <nav class="mobile-nav-list">
       <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="home2.html" class="mobile-nav-link">Home 2 (Move Planner)</a>
-      <a href="about.html" class="mobile-nav-link active">About MoveEase</a>
-      <a href="services.html" class="mobile-nav-link">Our Services</a>
-      <a href="orders.html" class="mobile-nav-link">Book a Move</a>
-      <a href="blogs.html" class="mobile-nav-link">Relocation Blogs</a>
-      <a href="contact.html" class="mobile-nav-link">Contact Us</a>
-      <a href="login.html" class="mobile-nav-link">Login</a>
+      <a href="home2.html" class="mobile-nav-link">Home 2</a>
+      <a href="about.html" class="mobile-nav-link active">About</a>
+      <a href="services.html" class="mobile-nav-link">Services</a>
+      <a href="orders.html" class="mobile-nav-link">Orders</a>
+      <a href="blogs.html" class="mobile-nav-link">Blogs</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
     </nav>
     <div style="margin-top: auto; padding-top: var(--space-5);">
       <a href="orders.html" class="btn btn-primary" style="width: 100%;">Get a Free Quote</a>
@@ -127,88 +175,41 @@
             </p>
             <div style="display: flex; gap: var(--space-6); flex-wrap: wrap;">
               <div>
-                <strong style="font-size: 2rem; color: var(--color-orange); display: block; font-family: var(--font-heading);">[X]+</strong>
+                <strong style="font-size: 2rem; color: var(--color-orange); display: block; font-family: var(--font-heading);">14+</strong>
                 <span style="font-size: var(--text-xs); color: #94A3B8; text-transform: uppercase;">Years in Service</span>
               </div>
               <div>
-                <strong style="font-size: 2rem; color: #FFFFFF; display: block; font-family: var(--font-heading);">[X,000]+</strong>
+                <strong style="font-size: 2rem; color: #FFFFFF; display: block; font-family: var(--font-heading);">28,000+</strong>
                 <span style="font-size: var(--text-xs); color: #94A3B8; text-transform: uppercase;">Verified Moves</span>
               </div>
               <div>
-                <strong style="font-size: 2rem; color: var(--color-sky); display: block; font-family: var(--font-heading);">[X]+</strong>
+                <strong style="font-size: 2rem; color: var(--color-sky); display: block; font-family: var(--font-heading);">42+</strong>
                 <span style="font-size: var(--text-xs); color: #94A3B8; text-transform: uppercase;">Cities Network</span>
               </div>
             </div>
           </div>
 
-          <!-- Right: Animated SVG (House -> Route -> Truck -> New Location) + Real Photo Element -->
+          <!-- Right: Hero Visual Card with Dedicated Operations Team Photo & Trust Badges -->
           <div class="reveal reveal-right delay-2">
-            <div class="hero-visual-card" style="background-color: rgba(11, 31, 51, 0.6); border-color: rgba(255, 255, 255, 0.12);">
-              <div class="hero-visual-photo-backdrop" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80'); opacity: 0.15;" aria-hidden="true"></div>
-              <div class="about-hero-svg-wrap">
-                <svg viewBox="0 0 500 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;" aria-label="Animated relocation journey: House to Route to Truck to New Location">
-                  <!-- Ground Road Base -->
-                  <line x1="20" y1="215" x2="480" y2="215" stroke="#334155" stroke-width="3" />
-                  <path d="M 65 200 C 140 200, 180 160, 270 160 C 350 160, 380 200, 440 200" class="anim-route-line" stroke="#36A9E1" stroke-width="2.5" fill="none" />
-
-                  <!-- Origin House (Left) -->
-                  <g transform="translate(30, 140)">
-                    <path d="M5 60 V20 L35 0 L65 20 V60 Z" fill="#162E48" stroke="#36A9E1" stroke-width="1.5" />
-                    <rect x="25" y="32" width="16" height="28" fill="#F59E0B" />
-                    <rect x="12" y="22" width="10" height="10" fill="#36A9E1" opacity="0.7" />
-                  </g>
-
-                  <!-- Animated Moving Truck (Drifting with Rotating Wheels) -->
-                  <g class="anim-truck" transform="translate(160, 130)">
-                    <rect x="10" y="20" width="115" height="55" rx="5" fill="#071524" stroke="#1769AA" stroke-width="1.5" />
-                    <rect x="16" y="26" width="103" height="43" fill="#1769AA" rx="3" />
-                    <text x="67" y="52" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" text-anchor="middle" letter-spacing="1">MOVEEASE</text>
-                    <path d="M125 36 H155 L168 54 V75 H125 Z" fill="#071524" />
-                    <path d="M135 40 H152 L162 52 H135 Z" fill="#36A9E1" opacity="0.8" />
-                    <circle cx="165" cy="65" r="3" fill="#F59E0B" />
-                    <rect x="10" y="75" width="158" height="6" fill="#0B1F33" />
-                    <!-- Front Wheel -->
-                    <g transform="translate(148, 81)">
-                      <circle cx="0" cy="0" r="11" fill="#1F2937" stroke="#475569" stroke-width="1.5" />
-                      <circle cx="0" cy="0" r="5" fill="#94A3B8" />
-                      <g class="anim-wheel">
-                        <line x1="0" y1="-5" x2="0" y2="5" stroke="#1F2937" stroke-width="1.5" />
-                        <line x1="-5" y1="0" x2="5" y2="0" stroke="#1F2937" stroke-width="1.5" />
-                      </g>
-                    </g>
-                    <!-- Rear Wheels -->
-                    <g transform="translate(38, 81)">
-                      <circle cx="0" cy="0" r="11" fill="#1F2937" stroke="#475569" stroke-width="1.5" />
-                      <circle cx="0" cy="0" r="5" fill="#94A3B8" />
-                      <g class="anim-wheel">
-                        <line x1="0" y1="-5" x2="0" y2="5" stroke="#1F2937" stroke-width="1.5" />
-                        <line x1="-5" y1="0" x2="5" y2="0" stroke="#1F2937" stroke-width="1.5" />
-                      </g>
-                    </g>
-                    <g transform="translate(62, 81)">
-                      <circle cx="0" cy="0" r="11" fill="#1F2937" stroke="#475569" stroke-width="1.5" />
-                      <circle cx="0" cy="0" r="5" fill="#94A3B8" />
-                      <g class="anim-wheel">
-                        <line x1="0" y1="-5" x2="0" y2="5" stroke="#1F2937" stroke-width="1.5" />
-                        <line x1="-5" y1="0" x2="5" y2="0" stroke="#1F2937" stroke-width="1.5" />
-                      </g>
-                    </g>
-                  </g>
-
-                  <!-- Destination House (Right) -->
-                  <g transform="translate(400, 130)">
-                    <path d="M5 70 V25 L40 0 L75 25 V70 Z" fill="#0E2842" stroke="#F59E0B" stroke-width="1.5" />
-                    <rect x="30" y="38" width="18" height="32" fill="#1769AA" />
-                    <rect x="14" y="24" width="12" height="12" fill="#F59E0B" opacity="0.8" rx="2" />
-                    <rect x="52" y="24" width="12" height="12" fill="#F59E0B" opacity="0.8" rx="2" />
-                  </g>
-
-                  <!-- Animated Pulsing Pin -->
-                  <g class="anim-pin" transform="translate(440, 115)">
-                    <path d="M0 0 C-6 -6, -9 -11, -9 -17 C-9 -24, -4 -29, 0 -29 C4 -29, 9 -24, 9 -17 C9 -11, 6 -6, 0 0 Z" fill="#F59E0B" />
-                    <circle cx="0" cy="-17" r="4" fill="#0B1F33" />
-                  </g>
-                </svg>
+            <div class="about-hero-image-card">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="MoveEase logistics operations and dispatch management team" class="about-hero-main-photo" loading="lazy">
+              <div class="about-hero-badge-top">
+                <span class="badge-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </span>
+                <div>
+                  <strong>ISO 9001:2015 Certified</strong>
+                  <small>Standardized Cargo Handling</small>
+                </div>
+              </div>
+              <div class="about-hero-badge-bottom">
+                <div class="about-badge-stat">
+                  <span class="badge-star">&#9733; 4.9</span>
+                  <div>
+                    <strong>28,000+ Moves</strong>
+                    <small>South India Premier Network</small>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

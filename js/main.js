@@ -209,8 +209,8 @@
         }
       });
     }, {
-      rootMargin: '0px 0px -40px 0px',
-      threshold: 0.12
+      rootMargin: '0px 0px -10px 0px',
+      threshold: 0.05
     });
 
     revealElements.forEach(el => observer.observe(el));
@@ -343,7 +343,112 @@
   }
 
   // ---------------------------------------------------------------------------
-  // 11. INITIALIZATION ON DOM READY
+  // 11. THEME (DARK/LIGHT) & RTL SUPPORT
+  // ---------------------------------------------------------------------------
+  function initThemeAndRTL() {
+    const themeBtns = document.querySelectorAll('.theme-toggle-btn');
+    const rtlBtns = document.querySelectorAll('.rtl-toggle-btn');
+
+    function applyTheme(theme, showNotice = false) {
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        if (document.body) document.body.classList.add('dark-mode');
+      } else {
+        document.documentElement.classList.remove('dark-mode');
+        if (document.body) document.body.classList.remove('dark-mode');
+      }
+
+      themeBtns.forEach(btn => {
+        const sunIcons = btn.querySelectorAll('.sun-icon');
+        const moonIcons = btn.querySelectorAll('.moon-icon');
+        if (theme === 'dark') {
+          sunIcons.forEach(i => i.style.display = 'none');
+          moonIcons.forEach(i => i.style.display = 'block');
+          btn.setAttribute('aria-label', 'Switch to light mode');
+          btn.setAttribute('title', 'Switch to Light Mode');
+        } else {
+          sunIcons.forEach(i => i.style.display = 'block');
+          moonIcons.forEach(i => i.style.display = 'none');
+          btn.setAttribute('aria-label', 'Switch to dark mode');
+          btn.setAttribute('title', 'Switch to Dark Mode');
+        }
+      });
+
+      try {
+        localStorage.setItem('moveease_theme', theme);
+      } catch (e) {}
+
+      if (showNotice && window.MoveEase && window.MoveEase.showToast) {
+        window.MoveEase.showToast(theme === 'dark' ? 'Dark Mode activated' : 'Light Mode activated', 'info');
+      }
+    }
+
+    function applyRTL(dir, showNotice = false) {
+      document.documentElement.setAttribute('dir', dir);
+      if (dir === 'rtl') {
+        document.documentElement.classList.add('rtl-mode');
+        if (document.body) document.body.classList.add('rtl-mode');
+        rtlBtns.forEach(btn => {
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-label', 'Switch to LTR layout');
+          btn.setAttribute('title', 'Switch to LTR (Left-to-Right) layout');
+        });
+      } else {
+        document.documentElement.classList.remove('rtl-mode');
+        if (document.body) document.body.classList.remove('rtl-mode');
+        rtlBtns.forEach(btn => {
+          btn.classList.remove('is-active');
+          btn.setAttribute('aria-label', 'Switch to RTL layout');
+          btn.setAttribute('title', 'Switch to RTL (Right-to-Left) layout');
+        });
+      }
+
+      try {
+        localStorage.setItem('moveease_direction', dir);
+      } catch (e) {}
+
+      if (showNotice && window.MoveEase && window.MoveEase.showToast) {
+        window.MoveEase.showToast(dir === 'rtl' ? 'RTL Layout activated' : 'LTR Layout activated', 'info');
+      }
+    }
+
+    // Attach listeners
+    themeBtns.forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next, true);
+      });
+    });
+
+    rtlBtns.forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const current = document.documentElement.getAttribute('dir') || 'ltr';
+        const next = current === 'rtl' ? 'ltr' : 'rtl';
+        applyRTL(next, true);
+      });
+    });
+
+    // Initial sync
+    let initialTheme = 'light';
+    try {
+      initialTheme = localStorage.getItem('moveease_theme') || 
+        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) {}
+    applyTheme(initialTheme, false);
+
+    let initialDir = 'ltr';
+    try {
+      initialDir = localStorage.getItem('moveease_direction') || 'ltr';
+    } catch (e) {}
+    applyRTL(initialDir, false);
+  }
+
+  // ---------------------------------------------------------------------------
+  // 12. INITIALIZATION ON DOM READY
   // ---------------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', function () {
     highlightActivePage();
@@ -352,6 +457,8 @@
     initProcessLineDraw();
     initServiceAreas();
     updateBasketUI();
+    initThemeAndRTL();
   });
 
 })();
+

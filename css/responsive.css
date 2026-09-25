@@ -93,7 +93,16 @@
   }
 
   .why-photo-main {
-    height: 360px;
+    height: 320px;
+    object-position: 85% center;
+  }
+
+  .why-floating-badge {
+    position: static;
+    margin-top: var(--space-3);
+    max-width: 100%;
+    right: auto;
+    bottom: auto;
   }
 
   .packages-grid {
@@ -356,8 +365,112 @@
     min-height: 44px;
   }
 
+  /* Enhanced Mobile Process Strip & Step Cards */
+  .process-strip {
+    padding: var(--space-4) 0;
+  }
+
   .process-steps-track {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .process-svg-line {
+    display: none !important;
+  }
+
+  .process-step-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-areas:
+      "num title"
+      "num desc";
+    column-gap: 14px;
+    row-gap: 3px;
+    align-items: center;
+    text-align: left;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg, 14px);
+    padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(11, 31, 51, 0.04);
+    width: 100%;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .process-step-item:active,
+  .process-step-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-blue);
+    box-shadow: 0 4px 14px rgba(23, 105, 170, 0.12);
+  }
+
+  .process-step-num {
+    grid-area: num;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    margin-bottom: 0;
+    align-self: center;
+    font-size: 1.05rem;
+    font-weight: 800;
+    background-color: var(--color-sky-light);
+    border: 2px solid var(--color-blue);
+    color: var(--color-blue);
+    box-shadow: none;
+  }
+
+  .process-step-title {
+    grid-area: title;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .process-step-desc {
+    grid-area: desc;
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    max-width: none;
+    line-height: 1.4;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  [dir="rtl"] .process-step-item {
+    grid-template-columns: 1fr 48px;
+    grid-template-areas:
+      "title num"
+      "desc num";
+    text-align: right;
+  }
+
+  [dir="rtl"] .process-step-title,
+  [dir="rtl"] .process-step-desc {
+    text-align: right;
+  }
+
+  [data-theme="dark"] .process-step-item {
+    background-color: #0E2238;
+    border-color: #1E3A5F;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  [data-theme="dark"] .process-step-num {
+    background-color: #162E48;
+    color: #36A9E1;
+    border-color: #36A9E1;
+  }
+
+  [data-theme="dark"] .process-step-title {
+    color: #F8FAFC;
+  }
+
+  [data-theme="dark"] .process-step-desc {
+    color: #94A3B8;
   }
 
   .stats-row {
@@ -451,10 +564,116 @@
   .planner-categories-grid,
   .collections-8-grid,
   .values-5-grid,
-  .story-timeline-track,
-  .steps-7-track,
   .team-roles-grid {
     grid-template-columns: 1fr;
+  }
+
+  .story-timeline-track,
+  .steps-7-track {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .story-step-node {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    grid-template-areas:
+      "circle title"
+      "circle desc";
+    column-gap: 14px;
+    row-gap: 2px;
+    align-items: center;
+    text-align: left;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg, 14px);
+    padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(11, 31, 51, 0.04);
+  }
+
+  .story-step-circle {
+    grid-area: circle;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    margin-bottom: 0;
+    align-self: center;
+    font-size: 0.88rem;
+    font-weight: 800;
+  }
+
+  .story-step-title {
+    grid-area: title;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .story-step-desc {
+    grid-area: desc;
+    font-size: 0.82rem;
+    max-width: none;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .step-7-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 14px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg, 14px);
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(11, 31, 51, 0.04);
+  }
+
+  .step-7-num {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .step-7-title {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  [dir="rtl"] .story-step-node {
+    grid-template-columns: 1fr 56px;
+    grid-template-areas:
+      "title circle"
+      "desc circle";
+    text-align: right;
+  }
+
+  [dir="rtl"] .story-step-title,
+  [dir="rtl"] .story-step-desc,
+  [dir="rtl"] .step-7-title {
+    text-align: right;
+  }
+
+  [dir="rtl"] .step-7-item {
+    flex-direction: row-reverse;
+  }
+
+  [data-theme="dark"] .story-step-node,
+  [data-theme="dark"] .step-7-item {
+    background-color: #0E2238;
+    border-color: #1E3A5F;
+  }
+
+  [data-theme="dark"] .story-step-title,
+  [data-theme="dark"] .step-7-title {
+    color: #F8FAFC;
+  }
+
+  [data-theme="dark"] .story-step-desc {
+    color: #94A3B8;
   }
   .your-move-cart-panel {
     flex-direction: column;
@@ -475,4 +694,298 @@
     width: 100%;
   }
 }
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE LOGIN PAGE & CONTROLS (DESKTOP, TABLET, MOBILE)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 992px) {
+  .login-wrapper {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .login-brand-panel {
+    padding: var(--space-6) var(--space-5);
+    text-align: center;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  [dir="rtl"] .login-brand-panel {
+    text-align: center;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .login-brand-logo {
+    justify-content: center;
+    margin-bottom: var(--space-3);
+  }
+
+  .login-brand-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .login-brand-content p {
+    margin-bottom: var(--space-4);
+  }
+
+  .login-brand-features {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+
+  .login-feature {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+  }
+
+  .login-brand-footer {
+    display: none;
+  }
+
+  .login-form-panel {
+    padding: var(--space-6) var(--space-5);
+  }
+}
+
+@media (max-width: 768px) {
+  .login-section {
+    padding: calc(var(--header-height) + var(--space-5)) 0 var(--space-6);
+  }
+
+  .login-wrapper {
+    max-width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  .login-form-panel {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .login-form-header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    height: 64px !important;
+  }
+
+  .site-header.scrolled {
+    height: 64px !important;
+  }
+
+  .why-photo-main {
+    height: 240px;
+    object-fit: cover;
+    object-position: 85% center;
+    border-radius: var(--radius-lg, 16px);
+  }
+
+  .why-floating-badge {
+    position: static;
+    margin-top: var(--space-3);
+    max-width: 100%;
+    right: auto;
+    bottom: auto;
+    box-shadow: 0 4px 14px rgba(11, 31, 51, 0.1);
+  }
+
+  .header-inner {
+    gap: 8px;
+    padding: 0 4px;
+  }
+
+  .brand-logo {
+    font-size: 1.15rem;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .brand-logo svg {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-actions {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .header-circle-group {
+    gap: 5px;
+  }
+
+  .header-circle-btn {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 0.7rem;
+    padding: 0;
+  }
+
+  .header-circle-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mobile-toggle {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .mobile-toggle span {
+    width: 18px;
+  }
+
+  .login-section {
+    padding: calc(var(--header-height) + var(--space-3)) 0 var(--space-5);
+  }
+
+  .login-wrapper {
+    margin: 0;
+    border-radius: var(--radius-md);
+  }
+
+  .login-brand-panel {
+    padding: var(--space-4) var(--space-3);
+  }
+
+  .login-brand-content h2 {
+    font-size: 1.35rem;
+  }
+
+  .login-brand-features {
+    display: none;
+  }
+
+  .login-form-panel {
+    padding: var(--space-5) var(--space-3);
+  }
+
+  .login-form-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .login-role-tabs {
+    margin-bottom: var(--space-4);
+  }
+
+  .login-role-tab {
+    padding: 8px var(--space-2);
+    font-size: 0.8rem;
+  }
+
+  .login-options {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .login-submit-btn {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .header-inner {
+    gap: 4px;
+    padding: 0;
+  }
+
+  .brand-logo {
+    font-size: 1.05rem;
+    gap: 4px;
+  }
+
+  .brand-logo svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .header-actions {
+    gap: 4px;
+  }
+
+  .header-circle-group {
+    gap: 4px;
+  }
+
+  .header-circle-btn {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    font-size: 0.65rem;
+  }
+
+  .header-circle-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .mobile-toggle {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    padding: 5px;
+    gap: 3px;
+  }
+
+  .mobile-toggle span {
+    width: 16px;
+  }
+}
+
+/* Orders Inventory Redesign Responsive Breakpoints */
+@media (max-width: 992px) {
+  .order-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .inventory-search-wrap {
+    width: 100%;
+    min-width: 100%;
+  }
+  .inventory-builder-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .order-categories-grid {
+    grid-template-columns: 1fr;
+  }
+  .inventory-items-grid {
+    grid-template-columns: 1fr;
+  }
+  .cart-metrics-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .inventory-modal-box {
+    width: 95%;
+    max-height: 90vh;
+  }
+}
+
 
