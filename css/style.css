@@ -793,7 +793,7 @@ p:last-child {
   background-color: var(--color-navy);
   color: var(--color-text-white);
   padding-top: var(--space-7);
-  padding-bottom: var(--space-7);
+  padding-bottom: 120px;
   overflow: hidden;
 }
 
