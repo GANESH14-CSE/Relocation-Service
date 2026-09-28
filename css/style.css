@@ -492,6 +492,7 @@ p:last-child {
 }
 
 .nav-link {
+  display: inline-block;
   font-family: var(--font-heading);
   font-weight: 500;
   font-size: var(--text-base);
@@ -3980,7 +3981,7 @@ textarea.form-control {
 /* Services Hero Banner — Different visual from Home hero */
 .services-hero-banner {
   position: relative;
-  background: linear-gradient(135deg, #0B1F33 0%, #162E48 40%, #1769AA 100%);
+  background-color: var(--color-navy);
   padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-9);
   overflow: hidden;
 }
@@ -5202,13 +5203,12 @@ textarea.form-control {
 /* Dark Hero Sections & About Hero High Contrast in Dark Mode */
 [data-theme="dark"] .about-hero,
 [data-theme="dark"] .section-dark,
+[data-theme="dark"] .about-hero,
 [data-theme="dark"] .about-promise,
 [data-theme="dark"] .order-hero-banner,
 [data-theme="dark"] .contact-hero-banner,
 [data-theme="dark"] .services-hero-banner {
-  background-color: #071524 !important;
-  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
-              linear-gradient(180deg, #07111C 0%, #0B1C2E 100%) !important;
+  background-color: #0B1726 !important;
   color: #FFFFFF !important;
 }
 
