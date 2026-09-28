@@ -3981,7 +3981,7 @@ textarea.form-control {
 .services-hero-banner {
   position: relative;
   background-color: var(--color-navy);
-  padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-9);
+  padding: var(--space-8) 0 var(--space-9);
   overflow: hidden;
 }
 
