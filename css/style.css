@@ -790,8 +790,8 @@ p:last-child {
 
 .hero-home {
   position: relative;
-  background: radial-gradient(circle at top right, rgba(54, 169, 225, 0.12) 0%, transparent 60%),
-              linear-gradient(180deg, #E0F2FE 0%, var(--color-bg) 100%);
+  background-color: var(--color-navy);
+  color: var(--color-text-white);
   padding-top: var(--space-7);
   padding-bottom: var(--space-7);
   overflow: hidden;
@@ -829,14 +829,14 @@ p:last-child {
   margin-top: var(--space-3);
   margin-bottom: var(--space-4);
   font-weight: 800;
-  color: var(--color-navy);
+  color: var(--color-text-white);
 }
 
 .hero-lead {
   font-size: var(--text-lg);
   line-height: 1.6;
   margin-bottom: var(--space-6);
-  color: var(--color-text-secondary);
+  color: #E2E8F0;
 }
 
 .hero-ctas {
@@ -852,7 +852,7 @@ p:last-child {
   align-items: center;
   gap: var(--space-6);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .trust-item {
@@ -861,7 +861,7 @@ p:last-child {
   gap: var(--space-2);
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: #E2E8F0;
 }
 
 .trust-item svg {
@@ -5130,8 +5130,7 @@ textarea.form-control {
 
 /* Hero Home Dark Mode */
 [data-theme="dark"] .hero-home {
-  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
-              linear-gradient(180deg, #07111C 0%, #0B1C2E 100%) !important;
+  background-color: #0B1726 !important;
 }
 
 [data-theme="dark"] .hero-home::before {
