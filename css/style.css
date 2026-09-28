@@ -525,7 +525,6 @@ p:last-child {
 
 .nav-link.active {
   color: var(--color-sky);
-  font-weight: 600;
 }
 
 /* Header Actions */
